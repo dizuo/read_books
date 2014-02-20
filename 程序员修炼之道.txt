@@ -22,4 +22,33 @@
 	·做倾听者：让大家听你说话，必须使用一种方法：听别人说话。
 	·回复他人：任何形式的讨论，回复他人。。
 	It is both what you say and the way you say it.
+
+2.1 重复的危害性	26
+	需求不断在变化，代码、模块的复制十分容易，梦魇地开始。
+	DRY Don't repeat yourself. 最重要的工具！
+	DRY替代方案是多个地方有相同的内容，It isn't a question of whether you'll remember: it's a question of when you'll forget
 	
+	·强加的重复
+		信息多重表示：客户端、服务器可能基于不同语言开发，某些数据结构不可避免重复，方案：开发代码生成工具。
+		代码注释。
+			Bad code requires lots of comments.
+			代码和注释某种意义下也是重复，每个修改都要同时修改code和comment，注释会不可避免地过时。有注释还不如没有。
+		代码和文档
+			写代码，同步文档。但是当最后期限逼近，客户抱怨，We trend to defer the updating of documentation.(我们一般倾向于延迟更新文档）。
+		语言问题
+			C/C++ .h,.cpp文件中函数申明等重复，没办法克服！避免在头文件和源文件中重复注释。
+	·无意的重复，有时候重复是错误设计的结果。
+		C++, Java, Always use a accessor functions to read and write the attributes of objects. It will make it easier to add functionality, such as caching in the future. The trick is to localize the impact(影响局部化).
+	·不耐烦的重复
+		项目紧任务重，怎么快怎么着。。
+		欲速则不达，shortcuts make for long delays.前期的不耐烦后期可能付出代价。
+	·开发者之间的重复
+		这种重复最难检测。
+		相互之间多交流，论坛、svn，codereview，相互学习！
+	
+2.2 正交性
+2.3 可撤销性
+2.4 曳光弹 
+2.5 原型与便签
+2.6 领域语言
+2.7 估算
