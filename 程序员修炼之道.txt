@@ -1,3 +1,5 @@
+# chinese page(english page)
+
 1.1 我的源码让猫给吃了	2
 1.2 软件的熵	4
 	破窗理论，整个过程的心态变化，”随便“，“无所谓” 开始。。。
@@ -46,18 +48,33 @@
 		这种重复最难检测。
 		相互之间多交流，论坛、svn，codereview，相互学习！
 	
-2.2 正交性
-	STL是正交性设计的典范！
-	正交性：模块之间耦合度为0，两个向量正交：一个在另一个上面投影为0。
-	Eliminate effects between unrelated things.
-	·提高生产率
-	改动局部化，开发、测试时间最低。
-	正交能够促进复用
-	正交组件组合，M*N结果
+2.2 正交性	34
+	STL是正交性设计的典范！	正交性：模块之间耦合度为0，两个向量正交：一个在另一个上面投影为0。	Eliminate effects between unrelated things.
 	
-	
-	
-	
+	·提高生产率	35
+		改动局部化，开发、测试时间最低。
+		正交能够促进复用
+		正交组件组合，M*N结果
+	·设计	37(56)
+		Orthogonal systems: modular, component-based, layered，模块化、组件化、分层！
+		组件按层次组织，每层提供一级抽象，每层只使用其下面的层次提供的抽象，改动底层实现，不影响其他代码方面，有极大的灵活性。参见Android层次化组件。
+	·工具箱与库	39(57)
+		ME：stl中容器和迭代器，适配器正交性，更换数据结构只需要修改数据结构类型，代码基本上不需要修改。
+	·编码	40(59)
+		Keep your code decoupled.
+		Avoid全局变量：依赖于全局变量，升级到多线程可能会潜在风险，OO做法是：一般context通过构造函数参数传入模块。单例设计模式。
+		避免编写想相似的函数：Strategy策略模式
+			Refactor: Get into the habit of being constantly critical of your code. Look for any opportunities to reorganize it to improve its structure and orthogonality.
+			养成批判对待自己代码的习惯，寻找任何机会，重新进行组织优化数据结构和正交性。
+	·测试	41(60)
+		为每个模块写内在的单元测试。
+	·文档	42(60)
+		正交性也应该应用到文档中，两个维度坐标轴是内容和形式。显著改变形式并不会影响到内容。
+	·认同正交性
+		正交性跟DRY很类似，DRY降低系统内重复度，正交性是降低系统模块之间的依赖性。
+		
+系统不正交，每处改动都会造成其他地方出错，噩梦开始，It is time to refactor！
+		
 2.3 可撤销性
 2.4 曳光弹 
 2.5 原型与便签
