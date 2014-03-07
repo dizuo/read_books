@@ -28,7 +28,9 @@
 2.1 重复的危害性	26
 	需求不断在变化，代码、模块的复制十分容易，梦魇地开始。
 	DRY Don't repeat yourself. 最重要的工具！
-	DRY替代方案是多个地方有相同的内容，It isn't a question of whether you'll remember: it's a question of when you'll forget
+	DRY替代方案是多个地方有相同的内容，
+		It isn't a question of whether you'll remember: it's a question of when you'll forget
+		不是你能否记住的问题，而是你何时忘记的问题。
 	
 	·强加的重复
 		信息多重表示：客户端、服务器可能基于不同语言开发，某些数据结构不可避免重复，方案：开发代码生成工具。
