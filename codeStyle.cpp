@@ -1,13 +1,19 @@
+// code-style.cpp 	// 13.file name
+
 #define TEST_CASE (0)	// 1.define
 
 namespace mynamespace 	// 9.namespace
 {
+	const int kDaysInAWeek = 7;	// 12. constant names.
+	
 	class MyClass 		// 10. class 
 	{	// class
 	public:
-		enum 
+		enum SearchErrors	// enum names
 		{
-			kTestCase = 0	// 2.enum
+			OK = 0,
+			ERROR_OUT_OF_MEMOTY,	// 2.enum values.
+			ERROR_OTHER = 1,	// enum values.
 		};
 
 		typedef std::string str_t;	// 3.user define type
