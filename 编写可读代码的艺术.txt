@@ -34,3 +34,57 @@
 	((layer*)ptr)->get_ref( ( ((layer*)ptr)->get_param() ) = 5;
 
 	拆分长表达式，遵循DRY原则，寻找相同的模式，通过函数、模版、宏层面优化。
+
+5. 变量与可读性
+	减少变量
+		减少没价值变量
+		中间变量
+		控制流变量
+	缩小变量的作用域
+	避免 全局、局部命名冲突
+
+	让你的变量对尽量少对代码行可见
+	不同模块、类、函数、语句块
+	把变量移到最少代码可以看到的地方。
+		C++ if语句的作用域
+		Info* ptr = ReadBytes();
+		if ( info )
+		{
+		// ;;
+		}
+
+		if ( Info* ptr = ReadBytes() )
+		{
+		// ;;;
+		}
+	只写一次的变量更好
+	const，final修饰，不需要动脑筋考虑
+
+6. 抽取不相关的子问题
+	将核心逻辑提取成函数以后，意料之外的好处：代码自成一体后改进它变得更容易。如添加功能，改进可读性，处理边界情况。
+	不相关子问题，不相交表示正交，
+	==人从某一点开始平庸，代码从某一念之间开始走向混沌==
+	符合DRY原则：do not repeat yourself.
+	接口尽量简洁，但是过犹不及。把握力度～
+	提升函数意料之外的好吃：
+	class Test{
+		map<str_t, int*> _block_map;
+	public:
+		int get_block(str_t key) {
+			return _block_map[key];
+		}		
+	}
+	// ==> 方便增加缓存
+	class Test{
+		map<str_t, int*> _block_map;
+		int* _cached_block;
+		str_t _cached_key;
+	public:
+		int get_block(str_t key) {
+			if (_cached_key == key)
+				return _cached_block;
+
+			return _block_map[key];
+		}		
+	}
+	
