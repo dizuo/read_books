@@ -1,114 +1,114 @@
-# chinese page(english page)
+﻿# chinese page(english page)
 
-1.1 �ҵ�Դ����è������	2
-1.2 ��������	4
-	�ƴ����ۣ��������̵���̬�仯������㡰��������ν�� ��ʼ������
-1.3 ʯͷ����������	7
-	�粿�ź�����Ҫ���������ų��ˣ����ȳ�һ��demo���ۼ�Ϊʵ�˲��ܵ������ǵĻ����ԡ�
-1.4 �㹻�õ�����	9
-1.5 ���֪ʶ�ʲ�	12
-	֪ʶ�����ε��ʲ�������ʱЧ�ԣ���Ҫ���ܸ��µ�����
-	���Ӷ�֪ʶ�����Ͷ��
-	���������ʶ��ͬʱ���е�˼�������������ġ������Ľ��ж��ι��ˡ�
-1.6 ����	18
-	I believe that it is better to be looked over than it is to be overlooked.�������ȱ�������Ҫ��
+1.1 我的源码让猫给吃了	2
+1.2 软件的熵	4
+	破窗理论，整个过程的心态变化，”随便“，“无所谓” 开始。。。
+1.3 石头汤与煮青蛙	7
+	跨部门合作，要让其他部门出人，得先出一个demo，眼见为实了才能调动他们的积极性。
+1.4 足够好的软件	9
+1.5 你的知识资产	12
+	知识是无形的资产，具有时效性，需要不管更新迭代。
+	增加对知识读书的投入
+	充电增长见识，同时批判地思考，对所看到的、听到的进行二次过滤。
+1.6 交流	18
+	I believe that it is better to be looked over than it is to be overlooked.被打量比被忽略重要。
 	Having the best ideas, the finest code, or the most pragmatic thinking is ultimately sterile unless you can communicate with other people. A good idea is an orphan without effective communication.
-	�������ܹ������˽��������������ӵ����õ����⣬��Ư���Ĵ��룬������ע��ʵЧ���뷨������Ҳ����޽����û����Ч�Ľ���һ�����뷨��ֻ��һ�����˹��ĵĹ¶���
+	除非你能够与他人交流，否则就算你拥有最好的主意，最漂亮的代码，或是最注重实效的想法，最终也会毫无结果，没有有效的交流一个好想法就只是一个无人关心的孤儿。
 		
-	��֪����Ҫ˵ʲô��д��٣���������
-	���������ڵ�����
-	��ѡ��ʱ��
-	��ѡ������̸��QQ��Email������
-	�����ĵ����ۣ�����ֻע�����ݡ�
-	�������ڲ��룬����~
-	���������ߣ��ô������˵��������ʹ��һ�ַ�����������˵����
-	���ظ����ˣ��κ���ʽ�����ۣ��ظ����ˡ���
+	·知道想要说什么：写大纲，熟练掌握
+	·掌握听众的需求
+	·选择时机
+	·选择风格，面谈、QQ、Email。。。
+	·让文档美观，不能只注重内容。
+	·让听众参与，互动~
+	·做倾听者：让大家听你说话，必须使用一种方法：听别人说话。
+	·回复他人：任何形式的讨论，回复他人。。
 	It is both what you say and the way you say it.
 
-2.1 �ظ���Σ����	26
-	���󲻶��ڱ仯�����롢ģ��ĸ���ʮ�����ף����ʵؿ�ʼ��
-	DRY Don't repeat yourself. ����Ҫ�Ĺ��ߣ�
-	DRY��������Ƕ���ط�����ͬ�����ݣ�
+2.1 重复的危害性	26
+	需求不断在变化，代码、模块的复制十分容易，梦魇地开始。
+	DRY Don't repeat yourself. 最重要的工具！
+	DRY替代方案是多个地方有相同的内容，
 		It isn't a question of whether you'll remember: it's a question of when you'll forget
-		�������ܷ��ס�����⣬�������ʱ���ǵ����⡣
+		不是你能否记住的问题，而是你何时忘记的问题。
 	
-	��ǿ�ӵ��ظ�
-		��Ϣ���ر�ʾ���ͻ��ˡ����������ܻ��ڲ�ͬ���Կ�����ĳЩ���ݽṹ���ɱ����ظ��������������������ɹ��ߡ�
-		����ע�͡�
+	·强加的重复
+		信息多重表示：客户端、服务器可能基于不同语言开发，某些数据结构不可避免重复，方案：开发代码生成工具。
+		代码注释。
 			Bad code requires lots of comments.
-			�����ע��ĳ��������Ҳ���ظ���ÿ���޸Ķ�Ҫͬʱ�޸�code��comment��ע�ͻ᲻�ɱ���ع�ʱ����ע�ͻ�����û�С�
-		������ĵ�
-			д���룬ͬ���ĵ������ǵ�������ޱƽ����ͻ���Թ��We trend to defer the updating of documentation.(����һ���������ӳٸ����ĵ�����
-		��������
-			C/C++ .h,.cpp�ļ��к����������ظ���û�취�˷���������ͷ�ļ���Դ�ļ����ظ�ע�͡�
-	��������ظ�����ʱ���ظ��Ǵ�����ƵĽ����
-		C++, Java, Always use a accessor functions to read and write the attributes of objects. It will make it easier to add functionality, such as caching in the future. The trick is to localize the impact(Ӱ��ֲ���).
-	�����ͷ����ظ�
-		��Ŀ�������أ���ô����ô�š���
-		�����򲻴shortcuts make for long delays.ǰ�ڵĲ��ͷ����ڿ��ܸ������ۡ�
-	��������֮����ظ�
-		�����ظ����Ѽ�⡣
-		�໥֮��ཻ������̳��svn��codereview���໥ѧϰ��
+			代码和注释某种意义下也是重复，每个修改都要同时修改code和comment，注释会不可避免地过时。有注释还不如没有。
+		代码和文档
+			写代码，同步文档。但是当最后期限逼近，客户抱怨，We trend to defer the updating of documentation.(我们一般倾向于延迟更新文档）。
+		语言问题
+			C/C++ .h,.cpp文件中函数申明等重复，没办法克服！避免在头文件和源文件中重复注释。
+	·无意的重复，有时候重复是错误设计的结果。
+		C++, Java, Always use a accessor functions to read and write the attributes of objects. It will make it easier to add functionality, such as caching in the future. The trick is to localize the impact(影响局部化).
+	·不耐烦的重复
+		项目紧任务重，怎么快怎么着。。
+		欲速则不达，shortcuts make for long delays.前期的不耐烦后期可能付出代价。
+	·开发者之间的重复
+		这种重复最难检测。
+		相互之间多交流，论坛、svn，codereview，相互学习！
 	
-2.2 ������	34
-	STL����������Ƶĵ䷶��	�����ԣ�ģ��֮����϶�Ϊ0����������������һ������һ������ͶӰΪ0��	Eliminate effects between unrelated things.
+2.2 正交性	34
+	STL是正交性设计的典范！	正交性：模块之间耦合度为0，两个向量正交：一个在另一个上面投影为0。	Eliminate effects between unrelated things.
 	
-	�����������	35
-		�Ķ��ֲ���������������ʱ����͡�
-		�����ܹ��ٽ�����
-		���������ϣ�M*N���
-	�����	37(56)
-		Orthogonal systems: modular, component-based, layered��ģ�黯����������ֲ㣡
-		����������֯��ÿ���ṩһ������ÿ��ֻʹ��������Ĳ���ṩ�ĳ��󣬸Ķ��ײ�ʵ�֣���Ӱ���������뷽�棬�м��������ԡ��μ�Android��λ������
-	�����������	39(57)
-		ME��stl�������͵������������������ԣ��������ݽṹֻ��Ҫ�޸����ݽṹ���ͣ���������ϲ���Ҫ�޸ġ�
-	������	40(59)
+	·提高生产率	35
+		改动局部化，开发、测试时间最低。
+		正交能够促进复用
+		正交组件组合，M*N结果
+	·设计	37(56)
+		Orthogonal systems: modular, component-based, layered，模块化、组件化、分层！
+		组件按层次组织，每层提供一级抽象，每层只使用其下面的层次提供的抽象，改动底层实现，不影响其他代码方面，有极大的灵活性。参见Android层次化组件。
+	·工具箱与库	39(57)
+		ME：stl中容器和迭代器，适配器正交性，更换数据结构只需要修改数据结构类型，代码基本上不需要修改。
+	·编码	40(59)
 		Keep your code decoupled.
-		Avoidȫ�ֱ�����������ȫ�ֱ��������������߳̿��ܻ�Ǳ�ڷ��գ�OO�����ǣ�һ��contextͨ�����캯����������ģ�顣�������ģʽ��
-		�����д�����Ƶĺ�����Strategy����ģʽ
+		Avoid全局变量：依赖于全局变量，升级到多线程可能会潜在风险，OO做法是：一般context通过构造函数参数传入模块。单例设计模式。
+		避免编写想相似的函数：Strategy策略模式
 			Refactor: Get into the habit of being constantly critical of your code. Look for any opportunities to reorganize it to improve its structure and orthogonality.
-			�������жԴ��Լ������ϰ�ߣ�Ѱ���κλ��ᣬ���½�����֯�Ż����ݽṹ�������ԡ�
-	������	41(60)
-		Ϊÿ��ģ��д���ڵĵ�Ԫ���ԡ�
-	���ĵ�	42(60)
-		������ҲӦ��Ӧ�õ��ĵ��У�����ά�������������ݺ���ʽ�������ı���ʽ������Ӱ�쵽���ݡ�
-	����ͬ������
-		�����Ը�DRY�����ƣ�DRY����ϵͳ���ظ��ȣ��������ǽ���ϵͳģ��֮��������ԡ�
+			养成批判对待自己代码的习惯，寻找任何机会，重新进行组织优化数据结构和正交性。
+	·测试	41(60)
+		为每个模块写内在的单元测试。
+	·文档	42(60)
+		正交性也应该应用到文档中，两个维度坐标轴是内容和形式。显著改变形式并不会影响到内容。
+	·认同正交性
+		正交性跟DRY很类似，DRY降低系统内重复度，正交性是降低系统模块之间的依赖性。
 		
-ϵͳ��������ÿ���Ķ�������������ط�������ج�ο�ʼ��It is time to refactor��
+系统不正交，每处改动都会造成其他地方出错，噩梦开始，It is time to refactor！
 		
-2.3 �ɳ�����	44(62)
-	���ɳ�����	45(63)
-		Ҫ�Ѿ�����Ϊд��ɳ̲ɽ�ģ�����Ҫ�����ǿ���ʯͷ�ϡ�������ʱ���ܵ���������Ĩȥ��
+2.3 可撤销性	44(62)
+	·可撤销性	45(63)
+		要把决策视为写在沙滩山的，而不要把他们刻在石头上。大浪随时可能到来把他们抹去。
 		There are no final decisions.
-	�����ļܹ�	46(64)
-		��ͬ���ԣ�java��C++������ͬƽ̨��win32��unix��linux��android�ȣ�����ʱ����Ҫ֧�֣��ѵ�������Ʒ�����ڶ������õĳ���ӿ� ����ʹ��Ԫ���ݡ�
-		�ɳ����ԣ����ĳЩ�������Զ����ӵģ���Ҳ�����Զ�������
-		û��֪�����������������������ǣ�Ҫ�ô���ѧ�ᡰҡ����������ҡ��ҡ��������͹���			
+	·灵活的架构	46(64)
+		不同语言（java、C++、）不同平台（win32、unix、linux、android等），随时可能要支持，把第三方产品隐藏在定义良好的抽象接口 或者使用元数据。
+		可撤销性：如果某些东西是自动添加的，它也可以自动撤销。
+		没人知道将来会怎样，尤其是我们，要让代码学会“摇滚”：可以摇就摇，必须滚就滚。			
 	
-2.4 ҷ�ⵯ 	48(66)
-	ҷ�ⵯ�볣���ӵ�������һ�����л�����Լ������ʵ�ӵ���ȫһ�£����������ԭ�ͣ������ҷ����Ǽ�ʱ�ġ�
-	���ںڰ��з���Ĵ���	49
-		�û��ܹ����翴���ܹ����Ķ���
-		�����߹�����һ���������й����Ľṹ
-		������һ������ƽ̨
-		�����˿�������ʾ�Ķ���
-		�㽫���ܹ��о���������չ
-	��ҷ�ⵯ�������ܻ���Ŀ��	51(69)
-	��ҷ����� vs ԭ�Ϳ���	/ 	Tracer Code versus Prototyping	51(69)
-		ԭ�Ϳ���Ϊ�����飬�����󶪵��������ж�����ʹ���Ѿ���õľ���������±��롣����ʹ�ø߼�����ʵ��xx���ܣ��������Ļ���Ȼ����C/C++ʵ���㷨ϸ�ڡ�
-		ԭ�����������ù����ӵĴ��룬ҷ�ⵯ������Ȼ��Լ����ȴ�������ģ����ҹ���������ϵͳ�ĹǼܵ�һ���֡�ԭ�����������Ϊ�ڵ�һ��ҷ�ⵯ����֮ǰ���е������鱨�Ѽ������� 
+2.4 曳光弹 	48(66)
+	曳光弹与常规子弹交错在一起，运行环境和约束与真实子弹完全一致（这点区别于原型），并且反馈是及时的。
+	·在黑暗中发光的代码	49
+		用户能够及早看到能工作的东西
+		开发者构建了一个能在其中工作的结构
+		你有了一个集成平台
+		你有了可用于演示的东西
+		你将更能够感觉到工作进展
+	·曳光弹并非总能击中目标	51(69)
+	·曳光代码 vs 原型开发	/ 	Tracer Code versus Prototyping	51(69)
+		原型开发为了试验，结束后丢掉所有所有东西，使用已经获得的经验进行重新编码。例如使用高级语言实现xx功能，结果理想的话，然后用C/C++实现算法细节。
+		原型制造生成用过就扔的代码，曳光弹代码虽然简约，但却是完整的，并且构成了最终系统的骨架的一部分。原型制造可以视为在第一发曳光弹发射之前进行的侦查和情报搜集工作。 
 
-2.5 ԭ�����ǩ	53(70)
-	��Ӧ����ԭ�͵�����
-		�ܹ�������ϵͳ���¹��ܡ��ⲿ���ݽṹ���ݡ�����������������������⡢�û��������
+2.5 原型与便签	53(70)
+	·应制作原型的事物
+		架构、已有系统中新功能、外部数据结构内容、第三方工具组件、性能问题、用户界面设计
 		Prototype to Learn
-	����ô��ʹ��ԭ�� 54(72)
-		���Ժ�����ȷ�ԡ������ԡ���׳�ԡ����ʹ�ø߼��ű����Կ��ٹ���ԭ�ͣ���ȡ�����Ժ�ʹ�õͼ�������д��
-	�������ܹ�ԭ�� 55(73)
-		׷��ܹ������ԣ��ӳٿ���ϸ�ڡ�
-	����ô����ʹ��ԭ�� 56(73)
-		���˺����ױ�ԭ�͵����������󵼡�������ڵĻ������Ļ�������������û��ǲ���ҷ�ⵯ����������󽫵õ�һ����ʵ�Ŀ�ܣ�Ϊ���������춨������
+	·怎么样使用原型 54(72)
+		可以忽略正确性、完整性、健壮性、风格。使用高级脚本语言快速构建原型，获取经验以后使用低级语言重写！
+	·制作架构原型 55(73)
+		追求架构整体性，延迟考虑细节。
+	·怎么样不使用原型 56(73)
+		别人很容易被原型的完整性所误导。如果所在的环境或文化不允许，则最好还是采用曳光弹方法，你最后将得到一个坚实的框架，为将来开发奠定基础。
 			
-2.6 ��������
-2.7 ����
+2.6 领域语言
+2.7 估算
