@@ -136,7 +136,8 @@
 		尤其对于错误的估算，总结原因
 
 3 基本工具	91(88)
-
+	强悍的find工具 find . -name '*.c' -print | xargs  grep 'printf'	输出包含printf的c源码文件。
+	
 
 
 	
