@@ -8,5 +8,6 @@
 
 // #define HEAP_MAIN
 #define FAST_SORT_MAIN
+#define STRING_SWAP_MAIN
 
 #endif

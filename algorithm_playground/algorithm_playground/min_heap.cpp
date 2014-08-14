@@ -1,4 +1,4 @@
-#include "share.h"
+#include "xshare.h"
 
 using namespace std;
 
