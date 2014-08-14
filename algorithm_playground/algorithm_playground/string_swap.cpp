@@ -23,9 +23,12 @@ int main()
 void unit_test_case()
 {
 	char buffer[] = "hello world, i am a good man.";
-	
 	printf("0 : %s\n", buffer);
 	swap_string(buffer);
+	
+	char short_buf[] = "one";
+	printf("0 : %s\n", short_buf);
+	swap_string(short_buf);
 }
 
 void inverse_string(char* pbeg, char* pend)
@@ -63,9 +66,7 @@ void swap_string(char* pstr)
 		if (pch == pend || *(pch+1) == ' ')
 		{
 			inverse_string(pbeg, pch);
-
-			pch++;	// skip space.
-			pbeg = pch + 1;
+			pbeg = pch + 2;
 		}
 	}
 	
