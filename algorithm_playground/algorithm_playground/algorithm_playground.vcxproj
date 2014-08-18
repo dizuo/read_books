@@ -64,7 +64,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="fast_sort.cpp" />
     <ClCompile Include="min_heap.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="xshare.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

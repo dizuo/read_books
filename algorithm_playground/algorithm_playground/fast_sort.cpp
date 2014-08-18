@@ -2,16 +2,63 @@
 
 using namespace std;
 
-void unit_test_case();
+class FastSort
+{
+public:
+	static void unit_test_case();
 
-template<typename Type, int SIZE>
-void fast_sort(Type(&buffer)[SIZE]);
+	template<typename Type>
+	int part_impl(Type* buffer, int left, int right);
 
+	template<typename Type>
+	void sort_impl(Type* buffer, int begin, int end, int length);
+
+	template<typename Type, int SIZE>
+	void fast_sort(Type(&buffer)[SIZE]);
+};
+
+int partition(int (&a)[5], int left, int right)
+{
+	int i = left;
+	int j = right;
+	int temp = a[i];
+	while (i<j)
+	{
+		while (i<j && a[j] >= temp)
+			j--;
+		if (i<j)
+			a[i] = a[j];
+		while (i<j && a[i] <= temp)
+			i++;
+		if (i<j)
+			a[j] = a[i];
+	}
+	a[i] = temp;
+	return i;
+}
+void quickSort(int (&a)[5], int left, int right)
+{
+	int dp;
+	if (left<right)
+	{
+		dp = partition(a, left, right);
+		quickSort(a, left, dp - 1);
+		quickSort(a, dp + 1, right);
+	}
+}
 
 #ifdef FAST_SORT_MAIN
 int main()
 {
-	unit_test_case();
+	// int a[9] = { 5, 4, 9, 1, 7, 6, 2, 3, 8 };
+	int a[5] = { 5, 4, 3, 2, 1 };
+	quickSort(a, 0, 4);
+	for (int i = 0; i<sizeof(a)/sizeof(a[0]); i++)
+	{
+		printf("%d ", a[i]);
+	} printf("\n");
+
+	FastSort::unit_test_case();
 
 	printf("any key pressed to exit...\n");
 	getchar();
@@ -21,17 +68,77 @@ int main()
 
 #endif
 
-template<typename Type>
-void sort_impl(Type* buffer, int left, int right)
+void FastSort::unit_test_case()
 {
-	int middle = (left >> 1) + (right >> 1);
+	srand(time(NULL));
 
+	const int kMaxSize = 50;
+	const int kMaxValue = 100;
 
+	// bad case.
+	// int int_array[kMaxSize] = { 75, 41, 38, 11, 11,87 };
+	int int_array[kMaxSize];
+
+	for (int k = 0; k<kMaxSize; k++)
+	{
+		*(int_array + k) = rand() % kMaxValue;
+	};
+	print_array(int_array);
+
+	FastSort sort_app;
+	sort_app.fast_sort(int_array);
+
+	print_array(int_array);
+}
+
+//1 pivot选左边第一个元素，则从右边游标开始，right--
+//2 两边游标移动 判断条件 buffer[*] >=(<=)是为了处理重复元素的case
+//3 函数宏观来看是一个swap操作
+//4 一次part_impl执行完成后pos位置的元素 完成归位（放到了排序以后的结果序列位置中去）
+template<typename Type>
+int FastSort::part_impl(Type* buffer, int left, int right)
+{
+	Type pivot = buffer[left];
+
+	while (left < right)
+	{
+		while (right > left && buffer[right] >= pivot)
+			--right;
+
+		buffer[left] = buffer[right];
+		
+		while (left < right && buffer[left] <= pivot)	// 连个元素重复情况下，需要移动left或者right
+			++left;
+
+		buffer[right] = buffer[left];
+	}
+
+	buffer[left] = pivot;
+	
+	return left;
+}
+
+template<typename Type>
+void FastSort::sort_impl(Type* buffer, int begin, int end, int length)
+{
+	int pos = part_impl(buffer, begin, end);	// pos位置的元素已经归位！
+
+	print_array(buffer, length);
+
+	if (begin < pos-1)
+	{
+		sort_impl(buffer, begin, pos - 1, length);
+	}
+
+	if (pos + 1 < end)
+	{
+		sort_impl(buffer, pos + 1, end, length);
+	}
 }
 
 template<typename Type, int SIZE>
-void fast_sort(Type(&buffer)[SIZE])
+void FastSort::fast_sort(Type(&buffer)[SIZE])
 {
-	sort_impl(buffer, 0, SIZE - 1);
+	sort_impl(buffer, 0, SIZE - 1, SIZE);
 }
 

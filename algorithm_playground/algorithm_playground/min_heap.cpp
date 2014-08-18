@@ -8,9 +8,6 @@ void make_min_heap( Type (&buffer)[SIZE] );
 template< typename Type, int SIZE>
 bool check_min_heap(Type(&buffer)[SIZE]);
 
-template< typename Type, int SIZE>
-void print_array( Type (&buffer)[SIZE] );
-
 int go_far_left(int fath, int num);
 void unit_test_case();
 
@@ -71,15 +68,6 @@ int go_far_left(int fath, int num)
 	}
 
 	return ret_pos;
-}
-
-template< typename Type, int SIZE>
-void print_array(Type(&buffer)[SIZE])
-{
-	for (int k = 0; k<SIZE; k++)
-	{
-		cout << *(buffer + k) << "\t";
-	} cout << endl;
 }
 
 template< typename Type>
