@@ -7,8 +7,9 @@
 #include <iostream>
 
 // #define HEAP_MAIN
-#define FAST_SORT_MAIN
-#define STRING_SWAP_MAIN
+// #define FAST_SORT_MAIN
+// #define STRING_SWAP_MAIN
+#define REVERT_LIST_MAIN
 
 template< typename Type, int SIZE>
 inline void print_array(Type(&buffer)[SIZE])

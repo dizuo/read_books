@@ -107,7 +107,7 @@ int FastSort::part_impl(Type* buffer, int left, int right)
 
 		buffer[left] = buffer[right];
 		
-		while (left < right && buffer[left] <= pivot)	// 连个元素重复情况下，需要移动left或者right
+		while (left < right && buffer[left] <= pivot)
 			++left;
 
 		buffer[right] = buffer[left];

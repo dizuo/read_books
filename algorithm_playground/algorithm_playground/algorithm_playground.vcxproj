@@ -66,6 +66,7 @@
   <ItemGroup>
     <ClCompile Include="fast_sort.cpp" />
     <ClCompile Include="min_heap.cpp" />
+    <ClCompile Include="revert_list.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xshare.h" />
