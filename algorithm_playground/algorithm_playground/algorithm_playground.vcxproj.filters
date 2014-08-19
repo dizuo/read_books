@@ -24,6 +24,9 @@
     <ClCompile Include="revert_list.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="binary_op.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xshare.h">

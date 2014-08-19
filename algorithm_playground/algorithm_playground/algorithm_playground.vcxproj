@@ -64,6 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="binary_op.cpp" />
     <ClCompile Include="fast_sort.cpp" />
     <ClCompile Include="min_heap.cpp" />
     <ClCompile Include="revert_list.cpp" />

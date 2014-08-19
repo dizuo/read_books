@@ -71,7 +71,6 @@ void SList::unit_test_case()
 	print_list(phead);
 
 	destroy_list(phead);
-
 }
 
 void SList::print_list(node_pt& phead)
