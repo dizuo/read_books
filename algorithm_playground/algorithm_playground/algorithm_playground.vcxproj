@@ -69,6 +69,7 @@
     <ClCompile Include="min_heap.cpp" />
     <ClCompile Include="sequence.cpp" />
     <ClCompile Include="revert_list.cpp" />
+    <ClCompile Include="suffix_array.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xshare.h" />
