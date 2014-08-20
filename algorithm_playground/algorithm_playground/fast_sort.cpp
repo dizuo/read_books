@@ -17,36 +17,6 @@ public:
 	void fast_sort(Type(&buffer)[SIZE]);
 };
 
-int partition(int (&a)[5], int left, int right)
-{
-	int i = left;
-	int j = right;
-	int temp = a[i];
-	while (i<j)
-	{
-		while (i<j && a[j] >= temp)
-			j--;
-		if (i<j)
-			a[i] = a[j];
-		while (i<j && a[i] <= temp)
-			i++;
-		if (i<j)
-			a[j] = a[i];
-	}
-	a[i] = temp;
-	return i;
-}
-void quickSort(int (&a)[5], int left, int right)
-{
-	int dp;
-	if (left<right)
-	{
-		dp = partition(a, left, right);
-		quickSort(a, left, dp - 1);
-		quickSort(a, dp + 1, right);
-	}
-}
-
 #ifdef FAST_SORT_MAIN
 int main()
 {
