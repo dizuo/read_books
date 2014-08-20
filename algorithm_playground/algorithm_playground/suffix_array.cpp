@@ -34,6 +34,7 @@ int ch_cmp_func(const void* p1, const void* p2)
 	return *(char*)p1 - *(char*)p2;
 }
 
+// http://blog.csdn.net/eroswang/article/details/4075580
 void sa_unit_test_case()
 {
 	char str[] = "peteryfren";
