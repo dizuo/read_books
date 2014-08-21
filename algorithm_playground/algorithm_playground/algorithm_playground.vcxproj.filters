@@ -21,9 +21,6 @@
     <ClCompile Include="fast_sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="revert_list.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="binary_op.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -31,6 +28,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="suffix_array.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="linked_list.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="number_op.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -17,13 +17,20 @@ public:
 
 	static void revert_list(node_pt& phead);
 
+	// http://zhedahht.blog.163.com/blog/static/2541117420079237185699/
+	static void recur_revert_print(node_pt head);
+
+	// Next step：
+	// O(1)时间复杂度内删除curp指向的结点, curp为最后一个结点特殊case处理！
+	static void delete_special_node(node_pt head, node_pt curp) {}
+
 	static void destroy_list(node_pt& head);
 
 	static void unit_test_case();
 
 };
 
-#ifdef REVERT_LIST_MAIN
+#ifdef LINKED_LIST_MAIN
 int main()
 {
 	SList::unit_test_case();
@@ -69,6 +76,9 @@ void SList::unit_test_case()
 	
 	printf("after reverse: \n");
 	print_list(phead);
+
+	printf("reverse print: \n");
+	recur_revert_print(phead);
 
 	destroy_list(phead);
 }
@@ -122,3 +132,16 @@ void SList::revert_list(node_pt& phead)
 	}
 
 }
+
+void SList::recur_revert_print(node_pt head)
+{
+	if (!head)
+	{
+		return;
+	}
+
+	// printf("%d\t", head->data);
+	recur_revert_print(head->next);
+	printf("%d\t", head->data);
+}
+
