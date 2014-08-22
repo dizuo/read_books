@@ -13,8 +13,8 @@
 // #define BINARY_MAIN
 // #define SEQUENCE
 // #define SUFFIX_ARRAY
-// #define NUMBER_MAIN
-#define STRING_MAIN
+#define NUMBER_MAIN
+// #define STRING_MAIN
 
 template< typename Type, int SIZE>
 inline void print_array(Type(&buffer)[SIZE])

@@ -4,6 +4,9 @@ void nb_unit_test_case();
 void get_sequence_with_sum(int dst_sum);
 void rearrage_array(int(&buffer)[10], int length);
 
+// C语言的取模：http://blog.csdn.net/yingbinchina/article/details/2715549
+void c_mod_test();
+
 #ifdef NUMBER_MAIN
 
 DECLARE_MAIN_ENTRY(nb_unit_test_case);
@@ -39,6 +42,8 @@ void nb_unit_test_case()
 		res ^= arr[iter];
 	}
 	printf("res = %d\n", res);
+	
+	c_mod_test();
 
 }
 
@@ -94,5 +99,50 @@ void rearrage_array(int(&buffer)[10], int length)
 		buffer[right] = temp;
 
 	}
+
+}
+
+void mod_impl(int a, int b)
+{
+	if (!b)
+	{
+		printf("%d\tmod\t%d\t#ERROR\n", a, b);
+		return;
+	}
+
+	printf("%d\tmod\t%d\t=\t%d\n", a, b, (a%b));
+}
+
+// a = b * (a/b) + (a % b)
+
+void c_mod_test()
+{
+	printf("===C_MOD_TEST===\n");
+
+	// # a, b 同号 #
+
+	// a > 0 , b > 0
+	mod_impl(5, 3);	// a > b
+	mod_impl(5, 8);	// a < b
+	mod_impl(0, 3);	// a == 0
+	mod_impl(5, 0);	// b == 0
+
+	// a < 0 , b < 0
+	mod_impl(-5, -3);	// a < b
+	mod_impl(-5, -8);	// a > b
+	mod_impl(0, -3);	// a == 0
+	mod_impl(-5, 0);	// b == 0
+
+	// # a, b 异号
+
+	// a < 0 , b > 0
+	mod_impl(-5, 3);	
+	mod_impl(-5, 8);	
+	
+	// a > 0 , b < 0
+	mod_impl(5, -3);	
+	mod_impl(5, -8);
+
+	printf("===C_MOD_TEST===\n");
 
 }
