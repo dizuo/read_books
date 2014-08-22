@@ -13,7 +13,8 @@
 // #define BINARY_MAIN
 // #define SEQUENCE
 // #define SUFFIX_ARRAY
-#define NUMBER_MAIN
+// #define NUMBER_MAIN
+#define STRING_MAIN
 
 template< typename Type, int SIZE>
 inline void print_array(Type(&buffer)[SIZE])
@@ -35,4 +36,15 @@ inline void print_array(Type* buffer, int size)
 	} cout << endl;
 }
 
-#endif
+#define DECLARE_MAIN_ENTRY(UNIT_TEST_FUNC)	\
+int main()	\
+{	\
+	UNIT_TEST_FUNC();	\
+		\
+	printf("any key pressed to exit...\n");	\
+	getchar();	\
+		\
+	return 0;	\
+}
+
+#endif		// file
