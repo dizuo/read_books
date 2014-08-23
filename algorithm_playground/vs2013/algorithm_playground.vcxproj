@@ -44,6 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>../algorithm_playground;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -64,17 +65,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="binary_op.cpp" />
-    <ClCompile Include="fast_sort.cpp" />
-    <ClCompile Include="min_heap.cpp" />
-    <ClCompile Include="number_op.cpp" />
-    <ClCompile Include="sequence.cpp" />
-    <ClCompile Include="linked_list.cpp" />
-    <ClCompile Include="string_op.cpp" />
-    <ClCompile Include="suffix_array.cpp" />
+    <ClInclude Include="..\algorithm_playground\xshare.h" />
+    <ClInclude Include="xshare.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="xshare.h" />
+    <ClCompile Include="..\algorithm_playground\binary_op.cpp" />
+    <ClCompile Include="..\algorithm_playground\fast_sort.cpp" />
+    <ClCompile Include="..\algorithm_playground\min_heap.cpp" />
+    <ClCompile Include="..\algorithm_playground\number_op.cpp" />
+    <ClCompile Include="..\algorithm_playground\sequence.cpp" />
+    <ClCompile Include="..\algorithm_playground\string_op.cpp" />
+    <ClCompile Include="..\algorithm_playground\string_swap.cpp" />
+    <ClCompile Include="..\algorithm_playground\suffix_array.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

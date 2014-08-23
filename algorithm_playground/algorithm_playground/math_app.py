@@ -63,7 +63,7 @@ def mod_impl(a, b):
 
 # http://blog.csdn.net/huasion/article/details/6855900
 def python_mod_test():
-    print("===C_MOD_TEST===")
+    print("===PYTHON_MOD_TEST===")
     # a, b 同号 #
 
     # a > 0 , b > 0
@@ -87,7 +87,7 @@ def python_mod_test():
     mod_impl(5, -3)
     mod_impl(5, -8)
 
-    print("===C_MOD_TEST===")
+    print("===PYTHON_MOD_TEST===")
 
         
 

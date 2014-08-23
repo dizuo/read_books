@@ -9,21 +9,15 @@ template< typename Type, int SIZE>
 bool check_min_heap(Type(&buffer)[SIZE]);
 
 int go_far_left(int fath, int num);
-void unit_test_case();
+void mh_unit_test_case();
 
 #ifdef HEAP_MAIN
-int main()
-{
-	unit_test_case();
-	
-	printf("any key pressed to exit...\n");
-	getchar();
-	
-	return 0;
-}
+
+DECLARE_MAIN_ENTRY(mh_unit_test_case);
+
 #endif
 
-void unit_test_case()
+void mh_unit_test_case()
 {
 	srand( time(NULL) );
 	
