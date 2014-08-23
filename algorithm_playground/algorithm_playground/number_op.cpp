@@ -15,7 +15,7 @@ DECLARE_MAIN_ENTRY(nb_unit_test_case);
 
 void nb_unit_test_case()
 {
-	srand(unsigned int(time(NULL)));
+	srand((unsigned int)(time(NULL)));
 
 	const int kMaxSize = 10;
 	const int kMaxValue = 100;
