@@ -11,9 +11,9 @@
 // #define STRING_SWAP_MAIN
 // #define LINKED_LIST_MAIN
 // #define BINARY_MAIN
-// #define SEQUENCE
+#define SEQUENCE
 // #define SUFFIX_ARRAY
-#define NUMBER_MAIN
+// #define NUMBER_MAIN
 // #define STRING_MAIN
 
 template< typename Type, int SIZE>

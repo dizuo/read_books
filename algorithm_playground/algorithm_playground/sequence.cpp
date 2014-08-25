@@ -2,6 +2,10 @@
 
 #include <deque>
 #include <vector>
+#include <deque>
+#include <algorithm>
+#include <iterator>
+
 using namespace std;
 
 // http://zhedahht.blog.163.com/blog/static/25411174200732102055385/
@@ -10,6 +14,15 @@ void pp_unit_test_case();
 void make_permutation(string& str, int k, int maxPos, vector<string>& perm_vec);
 bool is_push_pop_sequence(string& seq_str, string& src_str);
 void make_child_set(const char* str, vector<char>& res_set);
+
+template< typename Type >
+void stack_fifo_push(deque<Type>& stack, Type elem);
+
+template< typename Type >
+void stack_fifo_pop(deque<Type>& stack, Type& elem);
+
+template< typename Type >
+void reverse_stack(deque<Type>& stack);
 
 int gcd(int a, int b)
 {
@@ -29,15 +42,7 @@ int gcd(int a, int b)
 
 #ifdef SEQUENCE
 
-int main()
-{
-	pp_unit_test_case();
-	
-	printf("any key pressed to exit...\n");
-	getchar();
-
-	return 0;
-}
+DECLARE_MAIN_ENTRY(pp_unit_test_case);
 
 #endif
 
@@ -128,6 +133,25 @@ void pp_unit_test_case()
 	vector<char> res_vec;
 
 	// make_child_set(str, res_vec);
+	deque<int> stack;
+	for (int iter = 0; iter < 10; iter++)
+	{
+		stack_fifo_push(stack, iter);
+	}
+	while (!stack.empty())
+	{
+		int elem;
+		stack_fifo_pop(stack, elem);
+		printf("%d ", elem);
+	} printf("\n");
+
+	for (int iter = 0; iter < 10; iter++)
+	{
+		stack.push_back(iter);
+	}
+	copy(stack.begin(), stack.end(), ostream_iterator<int>(cout, ", "));	cout << endl;
+	reverse_stack(stack);
+	copy(stack.begin(), stack.end(), ostream_iterator<int>(cout, ", "));	cout << endl;
 
 	vector<string> perm_vec;
 	string src_str("1234");
@@ -148,3 +172,45 @@ void pp_unit_test_case()
 	}
 
 }
+
+template< typename Type >
+void stack_fifo_push(deque<Type>& stack, Type elem)
+{
+	if (stack.empty())
+	{
+		stack.push_back(elem);
+		return;
+	}
+
+	Type back = stack.back();
+	stack.pop_back();
+
+	stack_fifo_push(stack, elem);
+
+	stack.push_back(back);
+}
+
+template< typename Type >
+void stack_fifo_pop(deque<Type>& stack, Type& elem)
+{
+	elem = stack.back();
+	stack.pop_back();
+}
+
+template< typename Type >
+void reverse_stack(deque<Type>& stack)
+{
+	if (stack.empty())
+	{
+		return;
+	}
+
+	Type elem = stack.back();
+	stack.pop_back();
+
+	reverse_stack(stack);
+	
+	stack_fifo_push(stack, elem);
+
+}
+

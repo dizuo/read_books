@@ -19,7 +19,7 @@ DECLARE_MAIN_ENTRY(mh_unit_test_case);
 
 void mh_unit_test_case()
 {
-	srand( time(NULL) );
+	srand( (unsigned int)(time(NULL)) );
 	
 	const int kMaxSize = 51;
 	const int kMaxValue = 100;
