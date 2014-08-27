@@ -6,6 +6,8 @@ void rearrage_array(int(&buffer)[10], int length);
 
 // CÓïÑÔµÄÈ¡Ä££ºhttp://blog.csdn.net/yingbinchina/article/details/2715549
 void c_mod_test();
+void float_point_test();
+bool is_little_endian();
 
 #ifdef NUMBER_MAIN
 
@@ -43,7 +45,11 @@ void nb_unit_test_case()
 	}
 	printf("res = %d\n", res);
 	
-	c_mod_test();
+	// c_mod_test();
+
+	float_point_test();
+
+	is_little_endian();
 
 }
 
@@ -144,5 +150,89 @@ void c_mod_test()
 	mod_impl(5, -8);
 
 	printf("===C_MOD_TEST===\n");
+}
 
+// 31th: sign
+// 0th - 22th : base value.
+// 23th - 30th : exponent value. 127 + exp
+
+#define DUMP_FLOAT_VAL(val) \
+	printf("fval [%f] memory:\t", val); \
+	show_value_layout(val);
+
+#define DUMP_INT_VAL(val) \
+	printf("ival [%d] memory:\t", val); \
+	show_value_layout(val);
+
+// http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html
+
+void float_point_test()
+{
+	struct MYFloat
+	{
+		bool sign : 1;
+		char exponent : 8;
+		unsigned int mantissa : 23;
+	};
+
+	int ival = 4; 
+	printf("ival [%d] memory:\t", ival);
+	show_value_layout(ival);
+
+	float fval = 3.0f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = -3.0f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = 3.5f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = -3.5f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = 0.5f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = -0.5f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = 0.25f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	fval = 0.125f;
+	printf("fval [%f] memory:\t", fval);
+	show_value_layout(fval);
+
+	// fval = 0.3f;
+	fval = 7.0f / 8.0f;
+	DUMP_FLOAT_VAL(fval);
+	
+}
+
+bool is_little_endian()
+{
+	int ival = 0x1122;
+	typedef unsigned char byte_t;
+
+	byte_t* curp = (byte_t*)(&ival);
+	
+	printf("low byte = %.x\n", curp[0]);
+
+	if (*curp == 0x22)
+	{
+		printf("little endian\n");
+		return true;
+	}
+	
+	printf("big endian\n");
+
+	return false;
 }

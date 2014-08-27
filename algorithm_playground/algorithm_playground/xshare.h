@@ -11,10 +11,22 @@
 // #define STRING_SWAP_MAIN
 // #define LINKED_LIST_MAIN
 // #define BINARY_MAIN
-#define SEQUENCE
+// #define SEQUENCE
 // #define SUFFIX_ARRAY
-// #define NUMBER_MAIN
+#define NUMBER_MAIN
 // #define STRING_MAIN
+// #define ARRAY_OP
+
+template< typename Type, int SIZE >
+inline void fill_array(Type(&buffer)[SIZE], int max_value)
+{
+	unsigned int seeds = static_cast<unsigned int>(time(NULL));
+	srand(seeds);	
+	for (int k = 0; k < SIZE; k++)
+	{
+		*(buffer + k) = rand() % max_value;
+	}
+}
 
 template< typename Type, int SIZE>
 inline void print_array(Type(&buffer)[SIZE])
@@ -34,6 +46,22 @@ inline void print_array(Type* buffer, int size)
 	{
 		cout << *(buffer + k) << "\t";
 	} cout << endl;
+}
+
+template< typename Type >
+void show_value_layout(Type val)
+{
+	const size_t cLen = sizeof Type;
+
+/*	unsigned char ch_arr[cLen] = { 0 };
+	memcpy(ch_arr, &val, cLen);
+	for (int k = cLen - 1; k >= 0; k--) printf("0x%02x ", ch_arr[k]);
+*/	
+	typedef unsigned char* byte_pointer;
+	byte_pointer curp = (byte_pointer)(&val);
+	for (int k = cLen - 1; k >= 0; k--) printf("0x%02x ", curp[k]);
+
+	printf("\n");
 }
 
 #define DECLARE_MAIN_ENTRY(UNIT_TEST_FUNC)	\

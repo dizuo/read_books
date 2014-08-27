@@ -92,7 +92,7 @@ bool is_push_pop_sequence(string& seq_str, string& src_str)
 			break;
 		}
 		
-		for (int p = cursor; p <= k; p++)
+		for (size_t p = cursor; p <= k; p++)
 		{
 			ch_stack.push_back(src_str[p]);
 		}
@@ -149,6 +149,7 @@ void pp_unit_test_case()
 	{
 		stack.push_back(iter);
 	}
+	// http://blog.csdn.net/ryfdizuo/article/details/6531354
 	copy(stack.begin(), stack.end(), ostream_iterator<int>(cout, ", "));	cout << endl;
 	reverse_stack(stack);
 	copy(stack.begin(), stack.end(), ostream_iterator<int>(cout, ", "));	cout << endl;

@@ -40,19 +40,14 @@ int main()
 
 void FastSort::unit_test_case()
 {
-	srand(time(NULL));
-
 	const int kMaxSize = 50;
 	const int kMaxValue = 100;
 
 	// bad case.
 	// int int_array[kMaxSize] = { 75, 41, 38, 11, 11,87 };
 	int int_array[kMaxSize];
-
-	for (int k = 0; k<kMaxSize; k++)
-	{
-		*(int_array + k) = rand() % kMaxValue;
-	};
+	
+	fill_array(int_array, kMaxValue);
 	print_array(int_array);
 
 	FastSort sort_app;
