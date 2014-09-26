@@ -13,9 +13,11 @@
 // #define BINARY_MAIN
 // #define SEQUENCE
 // #define SUFFIX_ARRAY
-#define NUMBER_MAIN
+// #define NUMBER_MAIN
 // #define STRING_MAIN
 // #define ARRAY_OP
+
+#define CCPP_OP
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)

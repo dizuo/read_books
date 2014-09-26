@@ -24,6 +24,10 @@ void stack_fifo_pop(deque<Type>& stack, Type& elem);
 template< typename Type >
 void reverse_stack(deque<Type>& stack);
 
+void hanoi_test();
+void hanoi(int i, char A, char B, char C);
+void move(int i, char x, char y);
+
 int gcd(int a, int b)
 {
 	if (a > b)
@@ -172,6 +176,8 @@ void pp_unit_test_case()
 		}
 	}
 
+	hanoi_test();
+
 }
 
 template< typename Type >
@@ -215,3 +221,32 @@ void reverse_stack(deque<Type>& stack)
 
 }
 
+void hanoi_test()
+{
+	int n = 4;
+
+	/*printf("请输入n的值：");
+	scanf("%d", &n);*/
+
+	hanoi(n, 'A', 'B', 'C');
+}
+
+void hanoi(int i, char A, char B, char C)
+{
+	if (i == 1)
+	{
+		move(i, A, C);
+	}
+	else
+	{
+		hanoi(i - 1, A, C, B);   //函数递归调用 
+		move(i, A, C);
+		hanoi(i - 1, B, A, C);
+	}
+}
+
+void move(int i, char x, char y)
+{
+	static int c = 1;   //局部变量i申明为 static 
+	printf("%d: %d from %c ——> %c \n", c++, i, x, y);
+}
