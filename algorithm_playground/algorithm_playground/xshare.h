@@ -16,8 +16,7 @@
 // #define NUMBER_MAIN
 // #define STRING_MAIN
 // #define ARRAY_OP
-
-#define CCPP_OP
+// #define CCPP_OP
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
