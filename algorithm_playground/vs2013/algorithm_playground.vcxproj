@@ -66,8 +66,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\algorithm_playground\xshare.h" />
+    <ClInclude Include="..\algorithm_playground\android_hwui.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\algorithm_playground\android_hwui_model_test.cpp" />
     <ClCompile Include="..\algorithm_playground\array_op.cpp" />
     <ClCompile Include="..\algorithm_playground\binary_op.cpp" />
     <ClCompile Include="..\algorithm_playground\c_cpp_op.cpp" />

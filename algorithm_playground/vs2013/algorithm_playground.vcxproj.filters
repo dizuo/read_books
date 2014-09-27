@@ -18,6 +18,9 @@
     <ClInclude Include="..\algorithm_playground\xshare.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\algorithm_playground\android_hwui.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\algorithm_playground\binary_op.cpp">
@@ -51,6 +54,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\algorithm_playground\grab_html.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\android_hwui_model_test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

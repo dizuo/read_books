@@ -28,6 +28,7 @@ void process_html(string& html);
 void test_grab_html(char* url);
 void test_grab_jpg();
 
+#ifdef GRAB_HTML_APP
 int main(int argn, char* argv[])
 {
 	if (argn == 1)
@@ -43,6 +44,7 @@ int main(int argn, char* argv[])
 
 	return 0;
 }
+#endif
 
 void process_html(string& html)
 {

@@ -17,6 +17,9 @@
 // #define STRING_MAIN
 // #define ARRAY_OP
 // #define CCPP_OP
+// #define GRAB_HTML_APP
+
+#define ANDROID_HWUI_MODEL
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
