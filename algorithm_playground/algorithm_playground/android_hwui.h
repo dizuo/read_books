@@ -104,10 +104,16 @@ public:
 		DRAW_PATCH,
 		DRAW_RECT,
 		RESTORE,
-		TRANSLATEX
+		TRANSLATEX,
+		TRANSLATEY,
+		SCALEX,
+		SCALEY,
+		DRAW_DISPLAY_LIST
 	};
 
 	typedef int status_t;
+
+	DisplayList(DisplayListRender& render);
 
 	status_t initFromDisplayListRenderer(const DisplayListRender& render);
 
@@ -137,6 +143,12 @@ public:
 	
 	virtual status_t drawPatch(float top, float left, float bottom, float right, float alpha) { return drawTextureMesh(); }
 	virtual status_t drawRect(int x, int y, int width, int height) { return drawTextureMesh(); }
+	virtual status_t drawDisplayList(DisplayList* displaylist) {
+		if (displaylist)
+		{
+			displaylist->replay(*this, 0);
+		}
+	}
 	// virtual void translateX(float x);
 
 	status_t drawTextureMesh()
@@ -151,6 +163,15 @@ public:
 class DisplayListRender : public OpenGLRender
 {
 public:
+	DisplayList* getDisplayList(DisplayList* displaylist)
+	{
+		if (!displaylist)
+			displaylist = new DisplayList(*this);
+		else
+			displaylist->initFromDisplayListRenderer(*this);
+
+		return displaylist;
+	}
 
 	virtual status_t drawPatch(float top, float left, float bottom, float right, float alpha)
 	{
@@ -170,6 +191,13 @@ public:
 		addInt(y);
 		addInt(width);
 		addInt(height);
+		return 0;
+	}
+
+	virtual status_t drawDisplayList(DisplayList* displaylist)
+	{
+		addOp(DisplayList::DRAW_DISPLAY_LIST);
+		addInt((int)displaylist);
 		return 0;
 	}
 
@@ -218,6 +246,11 @@ DisplayList::status_t DisplayList::replay(OpenGLRender& render, int info)
 
 	return 0;
 
+}
+
+DisplayList::DisplayList(const DisplayListRender& render)
+{
+	initFromDisplayListRenderer(render);
 }
 
 DisplayList::status_t DisplayList::initFromDisplayListRenderer(const DisplayListRender& render)
