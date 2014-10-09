@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">xapp</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_section1">昨天</string>
+    <string name="title_section2">今天</string>
+    <string name="title_section3">明天</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="tab_map">地图</string>
+    <string name="tab_nav">导航</string>
+    <string name="tab_discovery">发现</string>
+    <string name="tab_me">我</string>
+    
+    <string name="finished_text">已经完成</string>
+    <string name="todo_text">没有完成</string>
+    
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="75dp"
+	android:paddingLeft="10dp" android:paddingRight="10dp">
+	<ImageView
+		android:id="@+id/img"
+		android:layout_height="fill_parent"
+		android:layout_width="60dp"
+		android:background="@drawable/listview_img"
+		android:layout_alignParentLeft="true" />
+	
+	<LinearLayout
+		android:orientation="vertical" android:layout_height="fill_parent"
+		android:layout_width="fill_parent" android:layout_toRightOf="@id/img"
+		android:paddingLeft="8dp"
+		android:paddingRight="8dp">
+		
+		<TextView
+			android:id="@+id/title1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#cbcaca"
+			android:textSize="20dp" />
+		<TextView
+			android:id="@+id/title2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#cbcaca"
+			android:textSize="14dp" />
+		<TextView
+			android:id="@+id/time"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#cbcaca"
+			android:textSize="12dp" />
+	</LinearLayout>
+	<CheckBox
+		android:id="@+id/checked"
+		android:layout_height="fill_parent"
+		android:layout_width="wrap_content"
+		android:layout_alignParentRight="true"
+		android:checked="false"
+		android:focusable="false" />
+</RelativeLayout>

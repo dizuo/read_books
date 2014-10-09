@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+	<com.dizuo.xapp.TabGroup    
+		android:id="@+id/tabs"
+		android:layout_width="fill_parent"
+		android:layout_height="@dimen/tab_height"
+		android:layout_alignParentBottom="true"
+		android:visibility="gone" >
+	
+		<ImageView
+			android:id="@+id/blur_bg"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:background="@color/tab_bg_other" />
+	
+		<LinearLayout
+			android:id="@+id/tabs_container"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent" >
+	
+			<TextView
+				android:id="@+id/map"
+				style="@style/MapBottomTabText"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_weight="1"
+				android:drawableTop="@drawable/icon_map_bg"
+				android:text="@string/tab_map" />
+	
+			<TextView
+				android:id="@+id/route"
+				style="@style/MapBottomTabText"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_weight="1"
+				android:drawableTop="@drawable/icon_route_bg"
+				android:text="@string/tab_nav" />
+	
+			<FrameLayout
+				android:id="@+id/discovery"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+	
+				<TextView
+					style="@style/MapBottomTabText"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:drawableTop="@drawable/icon_discover_bg"
+					android:text="@string/tab_discovery" />
+	
+				<ImageView
+					android:id="@+id/discovery_new_bg"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginBottom="@dimen/tab_new_margin_v"
+					android:layout_marginLeft="@dimen/tab_new_margin"
+					android:background="@drawable/new_feature_small"
+					android:visibility="gone" />
+			</FrameLayout>
+	
+			<FrameLayout
+				android:id="@+id/me"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:layout_weight="1" >
+	
+				<TextView
+					style="@style/MapBottomTabText"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:drawableTop="@drawable/icon_personal_bg"
+					android:text="@string/tab_me" />
+	
+				<ImageView
+					android:id="@+id/me_new_bg"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginBottom="@dimen/tab_new_margin_v"
+					android:layout_marginLeft="@dimen/tab_new_margin"
+					android:background="@drawable/new_feature_small"
+					android:visibility="gone" />
+			</FrameLayout>
+		</LinearLayout>
+	
+		<View
+			android:id="@+id/divider"
+			android:layout_width="fill_parent"
+			android:layout_height="1px"
+			android:layout_gravity="top"
+			android:background="@color/tab_divider" />
+					
+	</com.dizuo.xapp.TabGroup>
+	
+</FrameLayout>

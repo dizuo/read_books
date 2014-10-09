@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="car_nav_progress">#ffffff</color>
+    <color name="tab_bg_other">#ffffff</color>
+    <color name="tab_divider">#aaaaaa</color>
+    <color name="content_bg">#ffffff</color>
+    <color name="all_list_item_divider">#111111</color>
+    
+</resources>
