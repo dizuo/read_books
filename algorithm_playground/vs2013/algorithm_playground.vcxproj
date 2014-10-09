@@ -69,7 +69,7 @@
     <ClInclude Include="..\algorithm_playground\android_hwui.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\algorithm_playground\android_canvas.cpp" />
+    <ClCompile Include="..\algorithm_playground\android_canvas.h" />
     <ClCompile Include="..\algorithm_playground\android_hwui_model_test.cpp" />
     <ClCompile Include="..\algorithm_playground\array_op.cpp" />
     <ClCompile Include="..\algorithm_playground\binary_op.cpp" />

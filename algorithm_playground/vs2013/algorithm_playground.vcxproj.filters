@@ -62,7 +62,7 @@
     <ClCompile Include="..\algorithm_playground\android_displaylist.h">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\algorithm_playground\android_canvas.cpp">
+    <ClCompile Include="..\algorithm_playground\android_canvas.h">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

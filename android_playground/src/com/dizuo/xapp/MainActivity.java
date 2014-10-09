@@ -181,22 +181,25 @@ public class MainActivity extends FragmentActivity implements
 		}
 
 		@Override
+		
+		// TODO refactor: Use one ListView ...
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 			
-			TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);					
-			dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+			// TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);					
+			// dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
 			
-			ListView finish_lv = (ListView) rootView.findViewById(R.id.finished_list);
+			ListView listView = (ListView) rootView.findViewById(R.id.todo_list);
 			
 			String[] from = new String[] {"img", "title1", "title2", "time"};
 			int[] to = new int[] {R.id.time, R.id.title1, R.id.title2, R.id.time};
 			
-			List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+			// DataItemStruct is Map<String, Object>
+			List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();	// Data of ListView
 			Map<String, Object> map = null;
 			
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 10; i++)
 			{
 				map = new HashMap<String, Object>();
 				map.put("img", R.drawable.icon_discover_bg);
@@ -219,19 +222,40 @@ public class MainActivity extends FragmentActivity implements
 						cb.setChecked( (Boolean) map.get("checked"));
 					}
 					
-					cb.setOnClickListener(new View.OnClickListener(){
-						@Override
-						public void onClick(View view) {
-							map.put("checked", ((CheckBox)view).isChecked());
+					if (cb != null) {
+						cb.setOnClickListener(new View.OnClickListener(){
+							@Override
+							public void onClick(View view) {	// CheckBox hit event callback.
+								map.put("checked", ((CheckBox)view).isChecked());
+								Log.i("dizuo", "checkbox hit...");
+							}
+						});
+					}
+
+					TextView header = (TextView) view.findViewById(R.id.lv_header);
+					View content = view.findViewById(R.id.lv_content);
+					
+					if (position == 0 || position == 4) {
+						content.setVisibility(View.GONE);
+						header.setVisibility(View.VISIBLE);
+						header.setBackgroundColor(getResources().getColor(R.color.list_header_color));
+						
+						if (position == 0) {
+							header.setText(getResources().getText(R.string.todo_text));
 						}
-					});
+					}
+					else
+					{
+						content.setVisibility(View.VISIBLE);
+						header.setVisibility(View.GONE);
+					}
 					
 					return view;
 				}
 				
 			};
 			
-			finish_lv.setAdapter(adapter);
+			listView.setAdapter(adapter);
 			
 			AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {
 				public void onItemClick(AdapterView<?> parent, View view, int position, long id)
@@ -243,35 +267,8 @@ public class MainActivity extends FragmentActivity implements
 				}
 			};
 			
-			finish_lv.setOnItemClickListener(listener);
-			
-			ListView todo_lv = (ListView) rootView.findViewById(R.id.todo_list);
-			todo_lv.setOnItemClickListener(new OnItemClickListener() {
-
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-					// TODO Auto-generated method stub
-					
-				}
-				
-			});
-			
-			list.clear();
-			
-			for (int i = 0; i < 3; i++)
-			{
-				map = new HashMap<String, Object>();
-				map.put("img", R.drawable.icon_discover_bg);
-				map.put("title1", "标题");
-				map.put("title2", "副标题");
-				map.put("time", "2014-10-9 17:06");
-				list.add(map);
-			}
-			adapter = new SimpleAdapter(mContext, list, R.layout.complex_list_item, from, to);
-			todo_lv.setAdapter(adapter);
-			todo_lv.setOnItemClickListener(listener);
-			
+			listView.setOnItemClickListener(listener);
+						
 			// lv.setAdapter(new ArrayAdapter<String>(mContext, R.layout.simple_list_item_1, strs));
 			
 			return rootView;
