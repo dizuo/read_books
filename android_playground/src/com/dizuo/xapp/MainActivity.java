@@ -18,8 +18,10 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
@@ -29,6 +31,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -51,8 +54,9 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-
+		
+		setContentView(R.layout.activity_main);	// 2 
+				
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -87,6 +91,7 @@ public class MainActivity extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+				
 	}
 
 	@Override
@@ -104,6 +109,17 @@ public class MainActivity extends FragmentActivity implements
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
 
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch (item.getItemId()) {	// process menu hit event.
+		case R.id.action_settings:
+			Log.i("dizuo", "setting item is hit...");
+			break;			
+		}
+		
+		return true;
+	}
+		
 	@Override
 	public void onTabUnselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
@@ -131,7 +147,7 @@ public class MainActivity extends FragmentActivity implements
 		@Override
 		public Fragment getItem(int position) {
 			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
+			// Return a DummySectionFragment (defined as a s tatic inner class
 			// below) with the page number as its lone argument.
 			Fragment fragment = new DummySectionFragment(mContext);
 			Bundle args = new Bundle();
@@ -193,7 +209,7 @@ public class MainActivity extends FragmentActivity implements
 			ListView listView = (ListView) rootView.findViewById(R.id.todo_list);
 			
 			String[] from = new String[] {"img", "title1", "title2", "time"};
-			int[] to = new int[] {R.id.time, R.id.title1, R.id.title2, R.id.time};
+			int[] to = new int[] {R.id.img, R.id.title1, R.id.title2, R.id.time};
 			
 			// DataItemStruct is Map<String, Object>
 			List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();	// Data of ListView
@@ -202,7 +218,7 @@ public class MainActivity extends FragmentActivity implements
 			for (int i = 0; i < 10; i++)
 			{
 				map = new HashMap<String, Object>();
-				map.put("img", R.drawable.icon_discover_bg);
+				map.put("img", 0);
 				map.put("title1", "标题");
 				map.put("title2", "副标题");
 				map.put("time", "2014-10-9 17:06");
@@ -262,8 +278,7 @@ public class MainActivity extends FragmentActivity implements
 				{
 					HashMap<String,Object> map = (HashMap<String, Object>) parent.getItemAtPosition(position);
 					
-					Log.i("dizuo",  "position:" + position + "  item:"
-	                        + parent.getItemAtPosition(position).toString() );
+					Log.i("dizuo",  "position:" + position + "  item:" + parent.getItemAtPosition(position).toString() );
 				}
 			};
 			

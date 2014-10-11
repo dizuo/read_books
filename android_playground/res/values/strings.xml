@@ -2,7 +2,10 @@
 <resources>
 
     <string name="app_name">xapp</string>
+    
     <string name="action_settings">Settings</string>
+    <string name="action_add">Add</string>
+    
     <string name="title_section1">昨天</string>
     <string name="title_section2">今天</string>
     <string name="title_section3">明天</string>
