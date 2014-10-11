@@ -113,7 +113,7 @@ public:
 
 	typedef int status_t;
 
-	DisplayList(DisplayListRender& render);
+	DisplayList(const DisplayListRender& render);
 
 	status_t initFromDisplayListRenderer(const DisplayListRender& render);
 
@@ -250,7 +250,7 @@ DisplayList::status_t DisplayList::replay(OpenGLRender& render, int info)
 
 DisplayList::DisplayList(const DisplayListRender& render)
 {
-	initFromDisplayListRenderer(render);
+	// initFromDisplayListRenderer(render);
 }
 
 DisplayList::status_t DisplayList::initFromDisplayListRenderer(const DisplayListRender& render)
