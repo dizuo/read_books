@@ -22,10 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name=".TabActivity"
             android:label="@string/title_activity_tab" >
         </activity>
+        
+        <activity
+            android:name=".NoteEditActivity"
+            android:label="@string/title_activity_note_edit" >
+        </activity>
+        
     </application>
 
 </manifest>

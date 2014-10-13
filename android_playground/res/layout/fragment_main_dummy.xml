@@ -8,18 +8,13 @@
 		android:layout_width="match_parent"
         android:layout_height="wrap_content"        
         android:orientation="vertical" >
-
-        <TextView
-	        android:id="@+id/section_label"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"   />
         
         <TextView
 	        android:id="@+id/todo"
 	        android:visibility="gone"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="@string/finished_text" />
+	        android:text="@string/near_week" />
 		
 		<ListView
             android:id="@+id/todo_list"
