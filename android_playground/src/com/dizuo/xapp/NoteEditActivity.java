@@ -4,7 +4,10 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.RelativeLayout;
 
 public class NoteEditActivity extends Activity {
 	
@@ -17,6 +20,15 @@ public class NoteEditActivity extends Activity {
 		ActionBar bar = getActionBar();
 		bar.setDisplayHomeAsUpEnabled(true);
 		bar.show();
+		
+		RelativeLayout rl = (RelativeLayout) this.findViewById(R.id.note_edit_hd);		
+		rl.setOnClickListener(new View.OnClickListener(){
+			@Override
+            public void onClick(View view) {
+                Log.i("dizuo", "xxxx new xxx");
+            }
+		});
+		
 	}
 	
 	@Override

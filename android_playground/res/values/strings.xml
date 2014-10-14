@@ -6,12 +6,13 @@
     <string name="action_settings">Settings</string>
     <string name="action_add">Add</string>
     
-    <string name="title_section1">已经完成</string>
-    <string name="title_section2">等待完成</string>
-    <string name="title_section3">明天</string>
+    <string name="title_todo">等待完成</string>
+    <string name="title_finished">已经完成</string>
     
-    <string name="title_activity_tab">TabActivity</string>
-    <string name="title_activity_note_edit">NoteEditActivity</string>
+    <string name="title_activity_tab">记事本</string>
+    
+    <string name="title_activity_note_edit">新建记事本</string>
+	<string name="note_edit_text">完成期限  优先级</string>
     
     <string name="hello_world">Hello world!</string>
 

@@ -2,14 +2,60 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" >
 
-    <EditText
-    android:id="@+id/note_editer"
-    android:visibility="gone"
-    android:textSize="15dp"
-    android:layout_width="match_parent"
+<RelativeLayout
+    android:id="@+id/note_edit_hd"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:paddingLeft="10dp" 
+	android:paddingRight="10dp"
+	android:paddingBottom="10dp" 
+	android:clickable="true" >
+
+	<CheckBox
+		android:id="@+id/note_edit_cb"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:checked="false"
+		android:focusable="false" />
+		
+	<LinearLayout
+		android:orientation="horizontal" 
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_alignParentRight="true" >
+		
+		<TextView
+			android:id="@+id/note_edit_tv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:paddingTop="2dp"
+			android:text="@string/note_edit_text"
+			android:gravity="center_vertical|right"
+			android:textColor="#cbcaca" />
+		
+		<ImageView
+			android:id="@+id/note_edit_iv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@drawable/widget_btn_arrow_right_default_light" />
+			
+	</LinearLayout>
+		
+</RelativeLayout>
+
+<EditText
+	android:id="@+id/note_edit_et"
+	android:visibility="visible"
+	android:textSize="15dp"
+	android:inputType="textMultiLine"
+   	android:gravity="left|top"
+   	android:minLines="6"
+	android:layout_width="match_parent"
 	android:layout_height="wrap_content" />
-    
 
 </LinearLayout>

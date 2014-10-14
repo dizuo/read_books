@@ -72,8 +72,18 @@ public class MainActivity extends FragmentActivity implements
 					.setText(mNotesPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-				
+		
+		String strArrstr = "";
+		
+		String strArr[] = getStringArray("to C string: ");  
+        for(String s : strArr){  
+            strArrstr += ("  " + s);  
+        }  
+        
+        Log.i("dizuo", strArrstr);
+        
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -118,5 +128,16 @@ public class MainActivity extends FragmentActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
+	
+	static {  
+		try {
+			System.loadLibrary("native");	
+		}
+		catch( UnsatisfiedLinkError e )
+        {
+            System.err.println("Native code library error.\n");
+        }
+	}  
+	public native String[] getStringArray(String string);  
 
 }

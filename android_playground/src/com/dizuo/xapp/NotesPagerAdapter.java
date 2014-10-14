@@ -35,6 +35,13 @@ public class NotesPagerAdapter extends FragmentPagerAdapter {
 		
 		map = new HashMap<String, Object>();
 		map.put("img", 0);
+		map.put("title1", "主标题");
+		map.put("title2", "副标题");
+		map.put("time", "2014-10-14 18:17");
+		mManager.mFinishedList.add(map);
+		
+		map = new HashMap<String, Object>();
+		map.put("img", 0);
 		map.put("title1", HEADER_TAG);
 		map.put("title2", FAR_TAG);
 		map.put("time", "");
@@ -54,10 +61,10 @@ public class NotesPagerAdapter extends FragmentPagerAdapter {
 		
 		Fragment fragment = null;		
 		if (position == 0) {
-			fragment = new NotesPagerFragment(mContext, mManager.mFinishedList);
+			fragment = new NotesPagerFragment(mContext, mManager.mTodoList);
 		}
 		else {
-			fragment = new NotesPagerFragment(mContext, mManager.mTodoList);
+			fragment = new NotesPagerFragment(mContext, mManager.mFinishedList);
 		}
 		
 		return fragment;
@@ -73,11 +80,9 @@ public class NotesPagerAdapter extends FragmentPagerAdapter {
 		Locale l = Locale.getDefault();
 		switch (position) {
 		case 0:
-			return mContext.getString(R.string.title_section1).toUpperCase(l);
+			return mContext.getString(R.string.title_todo).toUpperCase(l);
 		case 1:
-			return mContext.getString(R.string.title_section2).toUpperCase(l);
-		case 2:
-			return mContext.getString(R.string.title_section3).toUpperCase(l);
+			return mContext.getString(R.string.title_finished).toUpperCase(l);		
 		}
 		return null;
 	}
