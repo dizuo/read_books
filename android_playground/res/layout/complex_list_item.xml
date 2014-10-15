@@ -17,47 +17,68 @@
 
 <RelativeLayout
     android:id="@+id/lv_content"
-	android:layout_width="fill_parent" android:layout_height="75dp"
-	android:paddingLeft="10dp" android:paddingRight="10dp">
-	<ImageView
-		android:id="@+id/img"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+
+    <CheckBox
+		android:id="@+id/lv_checked"
 		android:layout_height="fill_parent"
-		android:layout_width="60dp"
-		android:background="@drawable/listview_img"
-		android:layout_alignParentLeft="true" />
+		android:layout_width="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:paddingTop="4dp"
+		android:checked="false"
+		android:focusable="false" />    	
 	
-	<LinearLayout
-		android:orientation="vertical" android:layout_height="fill_parent"
-		android:layout_width="fill_parent" android:layout_toRightOf="@id/img"
-		android:paddingLeft="8dp"
-		android:paddingRight="8dp">
-		
-		<TextView
-			android:id="@+id/title1"
+    <LinearLayout
+        android:orientation="vertical" 
+        android:layout_height="wrap_content" android:layout_width="wrap_content"
+        android:layout_toRightOf="@id/lv_checked" >
+        
+        <TextView
+			android:id="@+id/lv_note_head"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textColor="#cbcaca"
 			android:textSize="20dp" />
+        
 		<TextView
-			android:id="@+id/title2"
+			android:id="@+id/lv_note_content"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#cbcaca"
+			android:textSize="14dp" />
+		
+    </LinearLayout>
+       
+	<ImageView
+		android:id="@+id/lv_img"
+		android:layout_height="fill_parent"
+		android:layout_width="wrap_content"
+		android:paddingTop="4dp"	
+		android:background="@drawable/listview_img"		
+		android:layout_alignParentRight="true" />
+  		
+	<LinearLayout
+		android:orientation="vertical" 
+		android:layout_height="wrap_content" android:layout_width="wrap_content" 
+		android:layout_toLeftOf="@id/lv_img" >
+		
+		<TextView
+			android:id="@+id/lv_title"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textColor="#cbcaca"
 			android:textSize="14dp" />
 		<TextView
-			android:id="@+id/time"
+			android:id="@+id/lv_time"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textColor="#cbcaca"
 			android:textSize="12dp" />
 	</LinearLayout>
-	<CheckBox
-		android:id="@+id/checked"
-		android:layout_height="fill_parent"
-		android:layout_width="wrap_content"
-		android:layout_alignParentRight="true"
-		android:checked="false"
-		android:focusable="false" />
+
+
+	    
 </RelativeLayout>
 
 </FrameLayout>

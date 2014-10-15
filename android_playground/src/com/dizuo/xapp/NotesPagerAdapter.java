@@ -16,38 +16,19 @@ public class NotesPagerAdapter extends FragmentPagerAdapter {
 	private Context mContext;
 	
 	public NotesDataManager mManager = new NotesDataManager();
-	
-	public static final String HEADER_TAG = "header_tag";
-	public static final String NEAR_TAG = "near_tag";
-	public static final String FAR_TAG = "far_tag";
-	
+		
 	public NotesPagerAdapter(FragmentManager fm, Context context) {
 		super(fm);
 		
-		Map<String, Object> map = null;
+		mManager.addDataToList(mManager.mFinishedList, 0, NotesDataManager.HEADER_TAG,
+				NotesDataManager.NEAR_TAG, "");
 		
-		map = new HashMap<String, Object>();
-		map.put("img", 0);
-		map.put("title1", HEADER_TAG);
-		map.put("title2", NEAR_TAG);
-		map.put("time", "");
-		mManager.mFinishedList.add(map);
+		mManager.addDataToList(mManager.mFinishedList, 0, "自住房申请", "test", "2014-10-14 18:17");
 		
-		map = new HashMap<String, Object>();
-		map.put("img", 0);
-		map.put("title1", "主标题");
-		map.put("title2", "副标题");
-		map.put("time", "2014-10-14 18:17");
-		mManager.mFinishedList.add(map);
+		mManager.addDataToList(mManager.mFinishedList, 0, NotesDataManager.HEADER_TAG,
+				NotesDataManager.FAR_TAG, "");
 		
-		map = new HashMap<String, Object>();
-		map.put("img", 0);
-		map.put("title1", HEADER_TAG);
-		map.put("title2", FAR_TAG);
-		map.put("time", "");
-		mManager.mFinishedList.add(map);
-		
-		mContext = context;			
+		mContext = context;
 	}
 
 	@Override

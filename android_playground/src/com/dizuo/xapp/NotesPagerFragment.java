@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import com.dizuo.xapp.NotesDataManager.NoteRecord;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -56,28 +57,26 @@ public class NotesPagerFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_main_dummy, container, false);
 		
 		ListView listView = (ListView) rootView.findViewById(R.id.todo_list);
-			
-		String[] from = new String[] {"img", "title1", "title2", "time"};
-		int[] to = new int[] {R.id.img, R.id.title1, R.id.title2, R.id.time};
 		
-		mLVAdapter = new SimpleAdapter(mContext, mList, R.layout.complex_list_item, from, to) {
+		mLVAdapter = new SimpleAdapter(mContext, mList, R.layout.complex_list_item, NotesDataManager.getKeyList(), 
+				NotesDataManager.getValueList()) {
 			@Override
 			public View getView(final int position, View convertView, ViewGroup parent) {
 				View view = super.getView(position, convertView, parent);
 				
-				final HashMap<String, Object> map = (HashMap<String, Object>) this.getItem(position);
+				final NoteRecord record = (NoteRecord) this.getItem(position);
 				
-				CheckBox cb = (CheckBox) view.findViewById(R.id.checked);
+				CheckBox cb = (CheckBox) view.findViewById(R.id.lv_checked);
 				
-				if (map.containsKey("checked")) {
-					cb.setChecked( (Boolean) map.get("checked"));
+				if (record.containsKey("checked")) {
+					cb.setChecked( (Boolean) record.get("checked"));
 				}
 				
 				if (cb != null) {
 					cb.setOnClickListener(new View.OnClickListener(){
 						@Override
 						public void onClick(View view) {	// CheckBox hit event callback.
-							map.put("checked", ((CheckBox)view).isChecked());
+							record.put("checked", ((CheckBox)view).isChecked());
 							Log.i("dizuo", "checkbox hit...");
 						}
 					});
@@ -86,12 +85,12 @@ public class NotesPagerFragment extends Fragment {
 				TextView header = (TextView) view.findViewById(R.id.lv_header);
 				View content = view.findViewById(R.id.lv_content);
 								
-				if (map.get("title1") == NotesPagerAdapter.HEADER_TAG) {
+				if (NotesDataManager.isRecordContainHeadTag(record)) {
 					content.setVisibility(View.GONE);
 					header.setVisibility(View.VISIBLE);
 					header.setBackgroundColor(getResources().getColor(R.color.list_header_color));
 					
-					if (map.get("title2") == NotesPagerAdapter.FAR_TAG) {
+					if (NotesDataManager.isRecordContainFarTag(record)) {
 						header.setText(getResources().getText(R.string.far_week));
 					}
 					else {
