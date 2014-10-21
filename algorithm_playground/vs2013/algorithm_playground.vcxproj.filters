@@ -68,5 +68,8 @@
     <ClCompile Include="..\algorithm_playground\windows_thread_event.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\algorithm_playground\simple_sort.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
