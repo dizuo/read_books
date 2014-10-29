@@ -6,6 +6,58 @@ void deep_in_cpp();
 DECLARE_MAIN_ENTRY(deep_in_cpp);
 #endif
 
+class A { int a; };
+class B { int b; };
+class C : public B, public A { int c; };
+
+void new_test()
+{
+	typedef struct Foo
+	{
+		unsigned short st;
+
+		Foo() : st(256) {}
+		~Foo() 
+		{
+			st = 0;
+		}
+
+	} Foo;
+
+	// Foo* pf = (Foo*)::operator new(sizeof(Foo));
+	unsigned char* pm = (unsigned char*)::operator new(sizeof(char)* 2);
+	printf("1) contents = %d, %d\n", pm[0], pm[1]);
+
+	Foo* pf = new (pm)Foo();
+	printf("2) contents = %d, %d\n", pm[0], pm[1]);
+
+	pf->~Foo();
+	printf("3) contents = %d, %d\n", pm[0], pm[1]);
+
+	::operator delete(pm);
+
+}
+
+void test1()
+{
+	typedef union XX
+	{
+		unsigned short st;
+		unsigned char uc[2];
+	}xx_t;
+
+	xx_t val;
+	val.st = 0x1122;
+	printf("%d\n", val.uc[0]);
+
+	C c;
+	A* pa = &c;
+	B* pb = &c;
+	printf("pa = %p\n", pa);
+	printf("pb = %p\n", pb);
+	printf("&c = %p\n", &c);
+}
+
 class Test
 {
 public:
@@ -30,8 +82,16 @@ void deep_in_cpp()
 	Test* p2 = &ct;
 	Test* p3 = &at;
 
-	t.print();
-	ct.print1();
+	void (Test::*func_alias)() = &(Test::print);
+	(t.*func_alias)();	// bind memory function pointer with object.
+
+	void(Test::*func1_alias)() = &(Test::print1);
+	(ct.*func1_alias)();
+
+	// t.print();
+	// ct.print1();
+
+	new_test();
 
 }
 
