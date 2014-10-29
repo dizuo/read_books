@@ -20,7 +20,9 @@
 // #define GRAB_HTML_APP
 
 // #define ANDROID_HWUI_MODEL
-#define SIMPLE_SORT
+// #define SIMPLE_SORT
+
+#define DEEP_IN_CPP
 
 // #define WINDOWS_THREAD_EVENT
 
