@@ -71,5 +71,14 @@
     <ClCompile Include="..\algorithm_playground\simple_sort.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\algorithm_playground\deepin_cpp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\clipper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\clipper_console_demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

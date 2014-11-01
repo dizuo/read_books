@@ -22,7 +22,7 @@
 // #define ANDROID_HWUI_MODEL
 // #define SIMPLE_SORT
 
-#define DEEP_IN_CPP
+// #define DEEP_IN_CPP
 
 // #define WINDOWS_THREAD_EVENT
 
