@@ -16,7 +16,7 @@
 // #define NUMBER_MAIN
 // #define STRING_MAIN
 // #define ARRAY_OP
-// #define CCPP_OP
+#define CCPP_OP
 // #define GRAB_HTML_APP
 
 // #define ANDROID_HWUI_MODEL
