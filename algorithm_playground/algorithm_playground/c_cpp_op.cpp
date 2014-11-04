@@ -21,6 +21,22 @@ void test_jmp_buf(xjmp_buf decay_ptr)
 	printf("%d\n", sizeof(var));
 }
 
+typedef struct VecNode
+{
+	int size;
+	int buffer[1];
+	// int buffer[0];
+} vec_node_t;
+
+vec_node_t* init_vec(int size)
+{
+	vec_node_t* head = (vec_node_t*)malloc(sizeof(vec_node_t) + sizeof(int) * (size-1));
+	// vec_node_t* head = (vec_node_t*)malloc(sizeof(vec_node_t) + sizeof(int) * size);
+	head->size = size;
+
+	return head;
+}
+
 void pointer_test()
 {
 	typedef unsigned short ushort_t;
@@ -74,5 +90,11 @@ void cc_unit_test_case()
 	test_jmp_buf(obj);
 
 	array_pointer_test();
+
+	vec_node_t* head = init_vec(100);
+	head->buffer[99] = 100;
+
+	free(head);	head = 0;
+
 }
 
