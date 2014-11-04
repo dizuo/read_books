@@ -10,13 +10,13 @@
 // #define FAST_SORT_MAIN
 // #define STRING_SWAP_MAIN
 // #define LINKED_LIST_MAIN
-// #define BINARY_MAIN
+#define BINARY_MAIN
 // #define SEQUENCE
 // #define SUFFIX_ARRAY
 // #define NUMBER_MAIN
 // #define STRING_MAIN
 // #define ARRAY_OP
-#define CCPP_OP
+// #define CCPP_OP
 // #define GRAB_HTML_APP
 
 // #define ANDROID_HWUI_MODEL
