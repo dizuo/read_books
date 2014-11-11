@@ -82,6 +82,9 @@ public class MainActivity extends FragmentActivity implements
         
         Log.i("dizuo", strArrstr);
         
+        Base base = new Derived();
+        Log.i("dizuo", base.getInfo());
+        
 	}
 	
 
@@ -140,4 +143,18 @@ public class MainActivity extends FragmentActivity implements
 	}  
 	public native String[] getStringArray(String string);  
 
+	class Base
+	{
+		public String getInfo() {
+			return "Base";
+		}
+	}
+	
+	class Derived extends Base {
+		
+		public String getInfo() {
+			return "Derived";
+		}
+	}
+	
 }

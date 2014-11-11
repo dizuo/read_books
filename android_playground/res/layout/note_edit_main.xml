@@ -53,6 +53,8 @@
 	android:visibility="visible"
 	android:textSize="15dp"
 	android:inputType="textMultiLine"
+	android:lineSpacingMultiplier="1.3"
+    android:hint="@string/editor_hit"    
    	android:gravity="left|top"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content" />

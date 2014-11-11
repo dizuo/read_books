@@ -16,17 +16,39 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+            <!-- intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter -->
         </activity>
         
         <activity
             android:name=".TabActivity"
             android:label="@string/title_activity_tab" >
         </activity>
+        
+        <activity 
+            android:name=".TestActivity" >
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+        
+    	<activity
+    	    android:label="activity_dialog"
+            android:theme="@android:style/Theme.Holo.Dialog"
+    	    android:name=".DialogActivity" > 
+    	    
+    	    <intent-filter> 
+    	        <action android:name="android.intent.action.DIAL"/>
+    	    	<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>    	    
+    	        	    
+    	</activity>
         
         <activity
             android:name=".NoteEditActivity"

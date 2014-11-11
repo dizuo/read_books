@@ -24,4 +24,6 @@
     <string name="near_week">最近一周内</string>
     <string name="far_week">一周前</string>
     
+    <string name="editor_hit">输入任务信息</string>
+    
 </resources>

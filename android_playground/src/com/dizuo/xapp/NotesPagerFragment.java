@@ -84,7 +84,7 @@ public class NotesPagerFragment extends Fragment {
 
 				TextView header = (TextView) view.findViewById(R.id.lv_header);
 				View content = view.findViewById(R.id.lv_content);
-								
+
 				if (NotesDataManager.isRecordContainHeadTag(record)) {
 					content.setVisibility(View.GONE);
 					header.setVisibility(View.VISIBLE);
