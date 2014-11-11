@@ -13,11 +13,11 @@ typedef uLong ulong_t;	// 32bit, 64bit.
 
 int main()
 {
-	ulong_t code = 0xfc << 24;
+	ulong_t code = 0xfcULL << 24;
 	unsigned int ui_code = 0xfc << 24;
 	printf("ulong_res = %lu, uint_res = %lu\n", code, ui_code);
 
-	code = 0xfc << 8;
+	code = 0xfcULL << 8;
 	ui_code = 0xfc << 8;
 	printf("ulong_res = %lu, uint_res = %lu\n", code, ui_code);
 

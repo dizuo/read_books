@@ -118,7 +118,7 @@ void x1_unit_test_case()
 	unsigned long long max_val = 0xffffffffffffffff;
 	dump_val_hex(max_val);
 
-	unsigned long long val = 0xfcUL << 24;	
+	unsigned long long val = 0xfcULL << 24;	
 	dump_val_hex(val);
 
 	val = 0xfcUL << 8;
