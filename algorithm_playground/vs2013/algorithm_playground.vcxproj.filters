@@ -77,5 +77,11 @@
     <ClCompile Include="..\algorithm_playground\clipper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\algorithm_playground\fuck_tango.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\rect_overlap_main.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

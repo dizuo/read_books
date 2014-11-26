@@ -78,9 +78,11 @@
     <ClCompile Include="..\algorithm_playground\android_displaylist.h" />
     <ClCompile Include="..\algorithm_playground\deepin_cpp.cpp" />
     <ClCompile Include="..\algorithm_playground\fast_sort.cpp" />
+    <ClCompile Include="..\algorithm_playground\fuck_tango.cpp" />
     <ClCompile Include="..\algorithm_playground\grab_html.cpp" />
     <ClCompile Include="..\algorithm_playground\min_heap.cpp" />
     <ClCompile Include="..\algorithm_playground\number_op.cpp" />
+    <ClCompile Include="..\algorithm_playground\rect_overlap_main.c" />
     <ClCompile Include="..\algorithm_playground\sequence.cpp" />
     <ClCompile Include="..\algorithm_playground\simple_sort.cpp" />
     <ClCompile Include="..\algorithm_playground\string_op.cpp" />

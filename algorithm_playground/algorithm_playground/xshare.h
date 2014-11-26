@@ -10,7 +10,7 @@
 // #define FAST_SORT_MAIN
 // #define STRING_SWAP_MAIN
 // #define LINKED_LIST_MAIN
-#define BINARY_MAIN
+// #define BINARY_MAIN
 // #define SEQUENCE
 // #define SUFFIX_ARRAY
 // #define NUMBER_MAIN
