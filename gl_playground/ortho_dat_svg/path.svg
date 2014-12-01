@@ -1,0 +1,186 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" version="1.1"
+xmlns = "http://www.w3.org/2000/svg">
+<path d="M40 371
+	L63 316
+	L187 370
+	L164 425 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M170 427
+	L181 368
+	L341 400
+	L330 459 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M362 443
+	L309 416
+	L362 312
+	L415 339 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M408 348
+	L369 303
+	L459 226
+	L498 271 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M507 238
+	L450 259
+	L415 164
+	L472 143 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M464 132
+	L423 175
+	L332 86
+	L373 43 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M351 35
+	L354 94
+	L146 104
+	L143 45 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M115 69
+	L174 80
+	L154 185
+	L95 174 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M110 153
+	L139 206
+	L61 248
+	L32 195 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M17 218
+	L76 225
+	L69 290
+	L10 283 Z"
+style="fill:none;stroke:gray;stroke-width:1"/>
+<path d="M52 344
+	L176 398
+	L336 430
+	L389 326
+	L479 249
+	L444 154
+	L353 65
+	L145 75
+	L125 180
+	L47 222
+	L40 287  "
+style="fill:none;stroke:blue;stroke-width:2"/>
+<path d="M131 409
+	L90 366
+	L109 348
+	L150 391 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M112 394
+	L147 345
+	L213 392
+	L178 441 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M182 443
+	L209 390
+	L232 402
+	L205 455 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M238 452
+	L199 405
+	L228 381
+	L267 428 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M229 428
+	L266 381
+	L298 406
+	L261 453 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M252 418
+	L307 441
+	L302 453
+	L247 430 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M295 463
+	L254 420
+	L285 390
+	L326 433 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M331 396
+	L280 427
+	L238 357
+	L289 326 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M111 388
+	L130 370
+	L196 417
+	L219 429
+	L248 405
+	L280 430
+	L275 442
+	L306 412
+	L264 342  "
+style="fill:none;stroke:red;stroke-width:1"/>
+<path d="M381 368
+	L330 335
+	L370 274
+	L421 307 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M391 320
+	L400 261
+	L451 268
+	L442 327 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M473 311
+	L420 284
+	L438 248
+	L491 275 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M356 352
+	L396 291
+	L447 298
+	L465 262  "
+style="fill:none;stroke:red;stroke-width:1"/>
+<path d="M139 167
+	L98 124
+	L159 65
+	L200 108 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M187 116
+	L172 57
+	L286 28
+	L301 87 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M282 85
+	L305 30
+	L421 76
+	L398 131 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M381 114
+	L438 93
+	L466 172
+	L409 193 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M119 146
+	L180 87
+	L294 58
+	L410 104
+	L438 183  "
+style="fill:none;stroke:red;stroke-width:1"/>
+<path d="M84 285
+	L27 264
+	L45 214
+	L102 235 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M87 251
+	L60 198
+	L92 182
+	L119 235 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M56 275
+	L74 225
+	L106 209  "
+style="fill:none;stroke:red;stroke-width:1"/>
+<path d="M112 222
+	L139 169
+	L236 217
+	L209 270 Z"
+style="fill:none;stroke:lightgray;stroke-width:1"/>
+<path d="M126 196
+	L223 244  "
+style="fill:none;stroke:red;stroke-width:1"/>
+</svg>
