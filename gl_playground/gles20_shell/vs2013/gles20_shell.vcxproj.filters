@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="GL">
+      <UniqueIdentifier>{3e826328-8260-4607-8f22-1d5d01c3867e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\GL\glew.c">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\glsl_shell.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\GL\glew.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
