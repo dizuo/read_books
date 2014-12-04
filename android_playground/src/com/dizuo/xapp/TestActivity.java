@@ -2,6 +2,7 @@ package com.dizuo.xapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,8 +44,35 @@ public class TestActivity extends Activity {
 		((Button)findViewById(R.id.new_dial)).setOnClickListener(new Button.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(Intent.ACTION_DIAL);
+				
+				// Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:15811339709"));
+				// startActivity(intent);
+				
+				//Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:556"));
+				//startActivity(intent);
+
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.qq.com"));
 				startActivity(intent);
+				
+/*				String[] reciver = new String[] { "dizuo@126.com" };  
+		        String[] mySbuject = new String[] { "test" };  
+		        String myCc = "cc";  
+		        String mybody = "测试Email Intent";  
+		        Intent myIntent = new Intent(android.content.Intent.ACTION_SEND);  
+		        myIntent.setType("plain/text");  
+		        myIntent.putExtra(android.content.Intent.EXTRA_EMAIL, reciver);  
+		        myIntent.putExtra(android.content.Intent.EXTRA_CC, myCc);  
+		        myIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mySbuject);  
+		        myIntent.putExtra(android.content.Intent.EXTRA_TEXT, mybody);  		        
+		        // Only For MIUI 指定使用系统默认的邮件发送
+		        myIntent.setClassName("com.android.email", "com.kingsoft.mail.compose.ComposeActivity");		        
+		        startActivity(Intent.createChooser(myIntent, "mail test"));*/
+		        
+				// open map
+				// Uri uri = Uri.parse("geo:39.984186, 116.307503");  
+				// Intent it = new Intent(Intent.ACTION_VIEW, uri);  
+				// startActivity(it);  
+								
 			}
 		});
 		
