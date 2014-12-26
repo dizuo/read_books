@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8CA3D03E19A8529F00B8602C /* algorithm_playground.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8CA3D03D19A8529F00B8602C /* algorithm_playground.1 */; };
 		8CA3D04519A852D300B8602C /* number_op.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CA3D04419A852D300B8602C /* number_op.cpp */; };
+		8CF410A619AC29B8005509E5 /* sequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF410A519AC29B8005509E5 /* sequence.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		8CA3D03819A8529F00B8602C /* algorithm_playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = algorithm_playground; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CA3D03D19A8529F00B8602C /* algorithm_playground.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = algorithm_playground.1; sourceTree = "<group>"; };
 		8CA3D04419A852D300B8602C /* number_op.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = number_op.cpp; path = ../../../algorithm_playground/number_op.cpp; sourceTree = "<group>"; };
+		8CF410A519AC29B8005509E5 /* sequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = sequence.cpp; path = ../../../algorithm_playground/sequence.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		8CA3D03A19A8529F00B8602C /* algorithm_playground */ = {
 			isa = PBXGroup;
 			children = (
+				8CF410A519AC29B8005509E5 /* sequence.cpp */,
 				8CA3D04419A852D300B8602C /* number_op.cpp */,
 				8CA3D03D19A8529F00B8602C /* algorithm_playground.1 */,
 			);
@@ -117,6 +120,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF410A619AC29B8005509E5 /* sequence.cpp in Sources */,
 				8CA3D04519A852D300B8602C /* number_op.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +231,7 @@
 				8CA3D04319A8529F00B8602C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

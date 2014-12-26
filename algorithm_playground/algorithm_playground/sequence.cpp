@@ -132,6 +132,10 @@ void make_child_set(const char* str, vector<char>& res_set)
 
 void pp_unit_test_case()
 {
+    const char* p1 = "123";
+    const char* p2 = "78";
+    int ret = strcmp(p1, p2);
+    
 	// make 1-5 all child set.
 	const char* str = "12345";
 	vector<char> res_vec;
