@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\glsl_shell.cpp" />
+    <ClCompile Include="..\..\polyoff.cpp" />
     <ClCompile Include="..\GL\glew.c" />
   </ItemGroup>
   <ItemGroup>
