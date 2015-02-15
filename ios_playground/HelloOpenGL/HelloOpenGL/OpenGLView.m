@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 peteryfren. All rights reserved.
 //
 
+// ref https://maniacdev.com/2009/09/the-categorized-opengl-es-tutorial-collection
 // ref http://www.raywenderlich.com/3664/opengl-tutorial-for-ios-opengl-es-2-0
 
 #import "OpenGLView.h"
