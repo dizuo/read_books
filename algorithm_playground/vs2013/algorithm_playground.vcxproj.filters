@@ -80,7 +80,7 @@
     <ClCompile Include="..\algorithm_playground\fuck_tango.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\algorithm_playground\rect_overlap_main.c">
+    <ClCompile Include="..\algorithm_playground\clipper_console_demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

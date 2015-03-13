@@ -1,6 +1,7 @@
 package com.dizuo.xapp;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +15,10 @@ import android.widget.Button;
 
 public class TestActivity extends Activity {
 
+	public static final String AUTHORITY = "com.dizuo.xapp.xxContentProvider";
+	
+	public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/users");
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
@@ -78,6 +83,18 @@ public class TestActivity extends Activity {
 		
 		Log.i("dizuo", "onCreate");
 		
+		insert();
+		
+	}
+	
+	private void insert() {
+		ContentValues values = new ContentValues();
+		values.put("name","zhangsan");  
+		values.put("age", "19");
+        
+        Uri uri = getContentResolver().insert(Uri.parse("content://com.dizuo.xapp.xxContentProvider/users"), values);  
+        Log.i("dizuo", "insert uri-->" + uri.toString()); 
+        
 	}
 	
 	protected void onDestroy() {

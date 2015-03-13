@@ -141,8 +141,9 @@ public class MainActivity extends FragmentActivity implements
             System.err.println("Native code library error.\n");
         }
 	}  
-	public native String[] getStringArray(String string);  
-
+	
+	public native String[] getStringArray(String string);
+	
 	class Base
 	{
 		public String getInfo() {

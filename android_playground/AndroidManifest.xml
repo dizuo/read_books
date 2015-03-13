@@ -4,7 +4,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
      
     <uses-sdk
         android:minSdkVersion="19"
@@ -56,6 +56,16 @@
             android:name=".NoteEditActivity"
             android:label="@string/title_activity_note_edit" >
         </activity>
+        
+        <!-- provider name填写ContentProvider那个类的全称，authorities填写xxProviderMetaData里的AUTHORIY -->  
+        <provider  
+            android:authorities="com.dizuo.xapp.xxContentProvider"  
+            android:name="com.dizuo.xapp.xxContentProvider"
+            android:multiprocess="true"
+            android:readPermission="com.dizuo.xapp.xxContentProvider.PERMISSION.READ"
+            android:writePermission="com.dizuo.xapp.xxContentProvider.PERMISSION.WRITE">    	    
+            
+    	</provider>  
         
     </application>
 

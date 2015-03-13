@@ -138,6 +138,14 @@
 
 3 基本工具	91(88)
 	强悍的find工具 find . -name '*.c' -print | xargs  grep 'printf'	输出包含printf的c源码文件。
+	The Unix Philosophy: Unix is famous for being designed around the philosophy of small, sharp tools, each intended to do one thing well.
+·编辑器特性	103(99)
+	可配置性，字体大小颜色；
+	可扩展性，支持各种类型文件
+	可编程性，提升开发效率
+	代码局部排序，vi中一个命令即可，强大的vi。npd++，IDE都是鼠标配合。
+	===> 钻研下vi
+	
 	
 
 
