@@ -17,6 +17,7 @@
 		8C19BA4A1A8CA55D00671843 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BA491A8CA55D00671843 /* OpenGLView.m */; };
 		8C19BA4C1A8CA62300671843 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C19BA4B1A8CA62300671843 /* OpenGLES.framework */; };
 		8C19BA4E1A8CA63400671843 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C19BA4D1A8CA63400671843 /* QuartzCore.framework */; };
+		8C37BFF81AE0A7F600EE71A9 /* OpenGLES1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C37BFF71AE0A7F600EE71A9 /* OpenGLES1View.m */; };
 		8C61559F1A8E07FE00A45512 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 8C61559E1A8E07FE00A45512 /* vertex.glsl */; };
 		8C6155A11A8E083A00A45512 /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 8C6155A01A8E083A00A45512 /* fragment.glsl */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,8 @@
 		8C19BA491A8CA55D00671843 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 		8C19BA4B1A8CA62300671843 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		8C19BA4D1A8CA63400671843 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8C37BFF61AE0A64B00EE71A9 /* OpenGLES1View.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLES1View.h; sourceTree = "<group>"; };
+		8C37BFF71AE0A7F600EE71A9 /* OpenGLES1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLES1View.m; sourceTree = "<group>"; };
 		8C61559E1A8E07FE00A45512 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
 		8C6155A01A8E083A00A45512 /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +101,8 @@
 			children = (
 				8C19BA481A8CA55D00671843 /* OpenGLView.h */,
 				8C19BA491A8CA55D00671843 /* OpenGLView.m */,
+				8C37BFF61AE0A64B00EE71A9 /* OpenGLES1View.h */,
+				8C37BFF71AE0A7F600EE71A9 /* OpenGLES1View.m */,
 				8C19BA231A8CA4B400671843 /* AppDelegate.h */,
 				8C19BA241A8CA4B400671843 /* AppDelegate.m */,
 				8C19BA261A8CA4B400671843 /* ViewController.h */,
@@ -241,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C19BA281A8CA4B400671843 /* ViewController.m in Sources */,
+				8C37BFF81AE0A7F600EE71A9 /* OpenGLES1View.m in Sources */,
 				8C19BA251A8CA4B400671843 /* AppDelegate.m in Sources */,
 				8C19BA221A8CA4B400671843 /* main.m in Sources */,
 				8C19BA4A1A8CA55D00671843 /* OpenGLView.m in Sources */,

@@ -18,7 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.glView =  [[OpenGLView alloc] initWithFrame:self.view.bounds];
+    // self.glView =  [[OpenGLView alloc] initWithFrame:self.view.bounds];
+    self.glView =  [[OpenGLES1View alloc] initWithFrame:self.view.bounds];
+    
     //[self.view addSubview: _glView];  // 添加单个view
     
     [self.view insertSubview:_glView belowSubview:_button]; // add glview bellow button.

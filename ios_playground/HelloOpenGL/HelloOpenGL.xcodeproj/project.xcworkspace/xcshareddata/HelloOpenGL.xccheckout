@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F842F442-ECB4-49E0-BF04-E942CE2BEA0C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>HelloOpenGL</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2FDDC2A5D477A9304E6C8F48E5FAB907EC6412EE</key>
+		<string>https://github.com/dizuo/read_books.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios_playground/HelloOpenGL/HelloOpenGL.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2FDDC2A5D477A9304E6C8F48E5FAB907EC6412EE</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dizuo/read_books.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2FDDC2A5D477A9304E6C8F48E5FAB907EC6412EE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2FDDC2A5D477A9304E6C8F48E5FAB907EC6412EE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>read_books</string>
+		</dict>
+	</array>
+</dict>
+</plist>
