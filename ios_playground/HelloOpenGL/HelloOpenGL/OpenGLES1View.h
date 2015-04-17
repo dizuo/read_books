@@ -15,10 +15,12 @@
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
     GLuint _colorRenderBuffer;
+    GLuint _depthRenderBuffer;
     
     GLuint _positionSlot;
     GLuint _colorSlot;
     
+    float _currentRotation;
 }
 
 @end

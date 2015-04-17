@@ -14,6 +14,12 @@
     return [CAEAGLLayer class];
 }
 
+-(void)initGL {
+    _currentRotation = 0;
+    glEnable(GL_DEPTH_TEST);
+    
+}
+
 -(void)setupLayer {
     _eaglLayer = (CAEAGLLayer*) self.layer;
     _eaglLayer.opaque = YES;
@@ -33,6 +39,13 @@
     }
 }
 
+- (void)setupDepthBuffer {
+    glGenRenderbuffersOES(1, &_depthRenderBuffer);
+    glBindRenderbufferOES(GL_RENDERBUFFER_OES, _depthRenderBuffer);
+    glRenderbufferStorageOES(GL_RENDERBUFFER_OES, GL_DEPTH_COMPONENT16_OES,
+                             self.frame.size.width, self.frame.size.height);
+}
+
 - (void)setupRenderBuffer {
     glGenRenderbuffersOES(1, &_colorRenderBuffer);
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, _colorRenderBuffer);
@@ -43,8 +56,12 @@
     GLuint framebuffer;
     glGenFramebuffersOES(1, &framebuffer);
     glBindFramebufferOES(GL_FRAMEBUFFER_OES, framebuffer);
+    
     glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_COLOR_ATTACHMENT0_OES,
                               GL_RENDERBUFFER_OES, _colorRenderBuffer);
+    
+    glFramebufferRenderbufferOES(GL_FRAMEBUFFER_OES, GL_DEPTH_ATTACHMENT_OES,
+                                 GL_RENDERBUFFER_OES, _depthRenderBuffer);
 }
 
 void glx_Perspective( GLfloat fov, GLfloat aspectRatio, GLfloat zNear, GLfloat zFar )
@@ -62,7 +79,22 @@ void glx_Perspective( GLfloat fov, GLfloat aspectRatio, GLfloat zNear, GLfloat z
               zNear, zFar );
 }
 
-- (void)render {
+// Add new method before init
+- (void)setupDisplayLink {
+    CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
+    displayLink.frameInterval = 2;
+    
+    // frameInterval = 1 gets you 60 fps
+    // frameInterval = 2 gets you 30 fps
+    // frameInterval = 3 gets you 20 fps
+    
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+// - (void)render {
+// Modify render method to take a parameter
+- (void)render:(CADisplayLink*)displayLink {
+    
     float gray = 104.0/255.0;
     
     glClearDepthf(0.0f);
@@ -86,13 +118,20 @@ void glx_Perspective( GLfloat fov, GLfloat aspectRatio, GLfloat zNear, GLfloat z
     GLfloat vertices[] = { -1,-1,0, -1,1,0, 1,1,0, 1,-1,0 };
     GLubyte indices [] = {0, 1, 2, 0, 2, 3};
     
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(3, GL_FLOAT, 0, vertices);
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
+    _currentRotation += displayLink.duration * 90;
+    
+    glPushMatrix();
+        glRotatef(_currentRotation, 1, 1, 0);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glVertexPointer(3, GL_FLOAT, 0, vertices);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_BYTE, indices);
+    glPopMatrix();
     
     int error = glGetError();
     if (error != 0)
         printf("error = %d\n", error);
+    
+    printf("render\n");
     
     [_context presentRenderbuffer:GL_RENDERBUFFER_OES];
 }
@@ -102,12 +141,16 @@ void glx_Perspective( GLfloat fov, GLfloat aspectRatio, GLfloat zNear, GLfloat z
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self initGL];
+        
         [self setupLayer];
         [self setupContext];
+        [self setupDepthBuffer];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
         
-        [self render];
+        [self setupDisplayLink];
+        // [self render];
     }
     return self;
 }
