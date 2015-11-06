@@ -26,6 +26,8 @@
 
 // #define WINDOWS_THREAD_EVENT
 
+#define SORT_INT_64
+
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
 {
