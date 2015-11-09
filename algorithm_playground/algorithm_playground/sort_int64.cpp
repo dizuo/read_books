@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 typedef unsigned long long int64_t;
 
@@ -10,6 +11,29 @@ void sort_int64_entry();
 #ifdef SORT_INT_64
 DECLARE_MAIN_ENTRY(sort_int64_entry);
 #endif
+
+void test()
+{
+	typedef unsigned long long uint64_t;
+	typedef unsigned int uint32_t;
+
+	uint64_t long_val = 9605602001633;
+
+	uint64_t low = long_val % INT_MAX;
+	uint64_t high = long_val / INT_MAX;
+
+	uint64_t new_val = low + high * INT_MAX;
+
+	if (low >= INT_MAX || high >= INT_MAX || new_val != long_val)
+	{
+		printf("test failed\n");
+	}
+	else
+	{
+		printf("%I64d, %I64d\n", long_val, new_val);
+	}
+	
+}
 
 int bad_cmp(const void* a, const void* b)
 {
@@ -68,6 +92,8 @@ void sort_int64_entry()
 		175878013, 175878016, 175878017, 175878018, 175878019 };
 
 	int size = sizeof(array) / sizeof(array[0]);
+
+	test();
 
 	printf("====> first pass\n");
 	random(array, size);
