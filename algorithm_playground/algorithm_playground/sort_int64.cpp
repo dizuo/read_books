@@ -77,6 +77,49 @@ void random(int64_t* array, int size)
 	}
 }
 
+typedef struct _Cell
+{
+	int val;
+	int other_stuff[1024];
+}Cell;
+int complex_compare(const void * a, const void * b)
+{
+	Cell* p1 = *((Cell**)a);
+	Cell* p2 = *((Cell**)b);
+	return p1->val - p2->val;
+}
+int simple_compare(const void * a, const void * b)
+{
+	return (*(int*)a - *(int*)b);
+}
+int test_main()
+{
+	int values[] = { 40, 10, 100, 90, 20, 25 };
+	const int NUM = sizeof(values) / sizeof(values[0]);
+	Cell* ptr_array[NUM];
+	int n;
+	for (n = 0; n < NUM; n++)
+	{
+		ptr_array[n] = (Cell*)malloc(sizeof(Cell));
+		ptr_array[n]->val = values[n];
+	}
+
+	qsort(values, NUM, sizeof(int), simple_compare);
+	for (n = 0; n<6; n++)
+		printf("%d ", values[n]);
+	printf("\n");
+
+	qsort(ptr_array, NUM, sizeof(Cell*), complex_compare);
+	for (n = 0; n<6; n++)
+		printf("%d ", ptr_array[n]->val);
+	printf("\n");
+
+	for (n = 0; n<6; n++)
+		free(ptr_array[n]);
+
+	return 0;
+}
+
 void sort_int64_entry()
 {
 	int64_t array[] = { 4110259597, 4110259597, 1384161, 1384161, 1384163, 
@@ -92,6 +135,8 @@ void sort_int64_entry()
 		175878013, 175878016, 175878017, 175878018, 175878019 };
 
 	int size = sizeof(array) / sizeof(array[0]);
+
+	test_main();
 
 	test();
 
