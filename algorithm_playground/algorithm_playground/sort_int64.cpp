@@ -202,7 +202,7 @@ void write_read_test()
 	int low = (int)(long_val % INT_MAX);
 	int high = (int)(long_val / INT_MAX);
 
-#define DUMP_VEC(vec) for (int k = 0; k < vec.size(); k++) {printf("%d ", vec[k]);} printf("\n");
+#define DUMP_VEC(vec) for (int k = 0; k < vec.size(); k++) {printf("%d ", (unsigned char)vec[k]);} printf("\n");
 
 	std::vector<char> v1, v2;
 	WriteInt64(v1, long_val);
@@ -216,6 +216,9 @@ void write_read_test()
 	WriteInt32(v2, high);
 	printf("v2 bytes : ");
 	DUMP_VEC(v2);
+
+	read_val = read_64int((const unsigned char*)&v2[0]);
+	printf("read bad val : %I64d\n", read_val);
 
 #undef DUMP_VEC
 
