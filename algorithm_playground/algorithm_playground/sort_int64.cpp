@@ -35,6 +35,8 @@ void test()
 	
 }
 
+void write_read_test();
+
 int bad_cmp(const void* a, const void* b)
 {
 	const int64_t p1 = *(const int64_t*)a;
@@ -140,6 +142,8 @@ void sort_int64_entry()
 
 	test();
 
+	write_read_test();
+
 	printf("====> first pass\n");
 	random(array, size);
 	dump(array, size);
@@ -155,4 +159,64 @@ void sort_int64_entry()
 	printf("====> fourth pass\n");
 	qsort(array, size, sizeof(int64_t), good_cmp);
 	dump(array, size);
+}
+
+#include <vector>
+
+void WriteInt64(std::vector<char>& data, int64_t iData)
+{
+	for (int k = 0; k < sizeof(iData); k++)
+	{
+		int off = 8 * k;
+		char ival = (char)((iData >> off) & 0xFF);
+		data.push_back(ival);
+	}
+}
+
+void WriteInt32(std::vector<char>& data, int iData)
+{
+	data.push_back((char)(iData & 0xFF));
+	data.push_back((char)((iData >> 8) & 0xFF));
+	data.push_back((char)((iData >> 16) & 0xFF));
+	data.push_back((char)((iData >> 24) & 0xFF));
+}
+
+long long read_64int(const unsigned char *buffer) 
+{
+	long long value = 0;
+	for (int k = 0; k < 8; k++)
+	{
+		int shift = k * 8;
+		long long tmp = buffer[k];
+		if (shift)
+			tmp = ((long long)buffer[k] << shift);
+
+		value += tmp;
+	}
+	return value;
+}
+
+void write_read_test()
+{
+	int64_t long_val = 9605602001633;
+	int low = (int)(long_val % INT_MAX);
+	int high = (int)(long_val / INT_MAX);
+
+#define DUMP_VEC(vec) for (int k = 0; k < vec.size(); k++) {printf("%d ", vec[k]);} printf("\n");
+
+	std::vector<char> v1, v2;
+	WriteInt64(v1, long_val);
+	printf("v1 bytes : ");
+	DUMP_VEC(v1);
+	
+	int64_t read_val = read_64int((const unsigned char*)&v1[0]);
+	printf("read val : %I64d\n", read_val);
+
+	WriteInt32(v2, low);
+	WriteInt32(v2, high);
+	printf("v2 bytes : ");
+	DUMP_VEC(v2);
+
+#undef DUMP_VEC
+
 }
