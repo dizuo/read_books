@@ -26,8 +26,10 @@
 
 // #define WINDOWS_THREAD_EVENT
 
-#define SORT_INT_64
+// #define SORT_INT_64
 // #define LOG_TEMPLATE
+
+#define CPP_11
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
