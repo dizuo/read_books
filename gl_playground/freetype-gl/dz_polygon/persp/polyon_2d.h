@@ -7,6 +7,8 @@
 #include "vec234.h"
 #include <vector>
 
+#include "texture.h"
+
 using namespace ftgl;
 
 typedef struct 
@@ -57,6 +59,8 @@ private:
 
 	vec2 pattern_;
 	vec2 zoom_;
+
+	Texture cp_tex_;
 
 };
 

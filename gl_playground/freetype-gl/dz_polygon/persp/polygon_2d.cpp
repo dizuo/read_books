@@ -9,6 +9,8 @@
 
 #define VS_COMPUTE_ST
 
+#define GL_COPY_TEXTURE_DEMO
+
 Polygon2D::Polygon2D()
 	: is_dirty_(true)
 {
@@ -217,11 +219,21 @@ void Polygon2D::render()
 		glUniformMatrix4fv(glGetUniformLocation(shader, "projection"),
 			1, 0, projection.data);
 		vertex_buffer_render(buffer, GL_TRIANGLES);
-	}
+	} 
+	glUseProgram(0);
 
 	int error = glGetError();
 	if (error)
 		printf("error = %d\n", error);
+
+#ifdef GL_COPY_TEXTURE_DEMO
+	if (cp_tex_.mId == 0)
+	{
+		cp_tex_.create_texture(vp[2], vp[3]);
+	}
+	cp_tex_.copy_from_screen(vp[0], vp[1], vp[2], vp[3]);
+	cp_tex_.render_to_screen(vp[2], vp[3]);
+#endif
 
 }
 

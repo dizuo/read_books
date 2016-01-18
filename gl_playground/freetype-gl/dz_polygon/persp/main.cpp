@@ -75,6 +75,7 @@ void display(GLFWwindow* window)
 	GLint width = viewport[2];
 	GLint height = viewport[3];
 
+	glBindTexture(GL_TEXTURE_2D, g_texid);
 	g_poly->render();
 
 	glfwSwapBuffers(window);
