@@ -29,7 +29,9 @@
 // #define SORT_INT_64
 // #define LOG_TEMPLATE
 
-#define CPP_11
+// #define CPP_11
+
+#define STRUCT_MEMORY
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
