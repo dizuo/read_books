@@ -89,5 +89,11 @@
     <ClCompile Include="..\algorithm_playground\cpp11.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\algorithm_playground\struct_memory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\stl_trick.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

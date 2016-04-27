@@ -31,7 +31,9 @@
 
 // #define CPP_11
 
-#define STRUCT_MEMORY
+// #define STRUCT_MEMORY
+
+#define STL_TRICK
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)

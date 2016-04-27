@@ -87,6 +87,7 @@
     <ClCompile Include="..\algorithm_playground\sequence.cpp" />
     <ClCompile Include="..\algorithm_playground\simple_sort.cpp" />
     <ClCompile Include="..\algorithm_playground\sort_int64.cpp" />
+    <ClCompile Include="..\algorithm_playground\stl_trick.cpp" />
     <ClCompile Include="..\algorithm_playground\string_op.cpp" />
     <ClCompile Include="..\algorithm_playground\string_swap.cpp" />
     <ClCompile Include="..\algorithm_playground\struct_memory.cpp" />
