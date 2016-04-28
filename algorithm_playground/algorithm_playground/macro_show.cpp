@@ -7,6 +7,8 @@ void macro_unit_test();
 DECLARE_MAIN_ENTRY(macro_unit_test);
 #endif
 
+// in MSVC good.
+// in XCode error.
 #define SETUP_POD_MEMBERS_(className, firstSmallName, firstBigName, type) \
     type m##firstBigName;    \
     type get##firstBigName() const { return m##firstBigName;} \
