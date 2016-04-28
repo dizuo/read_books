@@ -95,5 +95,8 @@
     <ClCompile Include="..\algorithm_playground\stl_trick.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\algorithm_playground\macro_show.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

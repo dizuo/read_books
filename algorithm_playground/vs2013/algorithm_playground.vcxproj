@@ -82,6 +82,7 @@
     <ClCompile Include="..\algorithm_playground\fuck_tango.cpp" />
     <ClCompile Include="..\algorithm_playground\grab_html.cpp" />
     <ClCompile Include="..\algorithm_playground\log_template.cpp" />
+    <ClCompile Include="..\algorithm_playground\macro_show.cpp" />
     <ClCompile Include="..\algorithm_playground\min_heap.cpp" />
     <ClCompile Include="..\algorithm_playground\number_op.cpp" />
     <ClCompile Include="..\algorithm_playground\sequence.cpp" />

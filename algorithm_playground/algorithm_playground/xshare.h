@@ -33,7 +33,9 @@
 
 // #define STRUCT_MEMORY
 
-#define STL_TRICK
+// #define STL_TRICK
+
+#define MACRO_SHOW_
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
