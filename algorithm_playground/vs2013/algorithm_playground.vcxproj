@@ -65,6 +65,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\algorithm_playground\thread\resource_mgr.h" />
     <ClInclude Include="..\algorithm_playground\xshare.h" />
     <ClInclude Include="..\algorithm_playground\android_hwui.h" />
   </ItemGroup>
@@ -93,6 +94,8 @@
     <ClCompile Include="..\algorithm_playground\string_swap.cpp" />
     <ClCompile Include="..\algorithm_playground\struct_memory.cpp" />
     <ClCompile Include="..\algorithm_playground\suffix_array.cpp" />
+    <ClCompile Include="..\algorithm_playground\thread\resource_mgr.cpp" />
+    <ClCompile Include="..\algorithm_playground\thread\thread.cpp" />
     <ClCompile Include="..\algorithm_playground\windows_thread_event.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\thread">
+      <UniqueIdentifier>{8141ea67-4e0a-42cf-a93e-1b41e672617b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\algorithm_playground\xshare.h">
@@ -20,6 +23,9 @@
     </ClInclude>
     <ClInclude Include="..\algorithm_playground\android_hwui.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\algorithm_playground\thread\resource_mgr.h">
+      <Filter>源文件\thread</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +103,12 @@
     </ClCompile>
     <ClCompile Include="..\algorithm_playground\macro_show.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\thread\thread.cpp">
+      <Filter>源文件\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\thread\resource_mgr.cpp">
+      <Filter>源文件\thread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

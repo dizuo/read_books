@@ -35,7 +35,9 @@
 
 // #define STL_TRICK
 
-#define MACRO_SHOW_
+// #define MACRO_SHOW_
+
+#define CPP11_THREAD_
 
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
