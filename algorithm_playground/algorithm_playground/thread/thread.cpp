@@ -10,24 +10,60 @@
 #include <vector>
 #include <stdlib.h>
 
+#include "resource_mgr.h"
+
 using namespace std;
 
+void thread_main_entry();
 
-void thread_test();
-
+void custom_test();
 void simple_test();
-
 void threadAsync();
 
 #ifdef CPP11_THREAD_
-DECLARE_MAIN_ENTRY(thread_test)
+DECLARE_MAIN_ENTRY(thread_main_entry)
 #endif
 
-void thread_test()
+void thread_main_entry()
 {
 	// simple_test();
 
-	threadAsync();
+	// threadAsync();
+
+	custom_test();
+
+}
+
+ResourceManager resMgr;
+
+void custom_test()
+{
+	// add request.
+	
+	Resource* res1 = new ImageLoader();
+	resMgr.addResourceRequest(res1);
+
+	Resource* res2 = new ImageLoader();
+
+	resMgr.addResourceRequest(res2);
+
+	std::thread data_thread(std::mem_fn(&ResourceManager::handleTasks), &resMgr);
+	data_thread.detach();
+
+	int pass = 0;
+	while (true)
+	{
+		if (res1->getState() == Loaded && res2->getState() == Loaded)
+		{
+			printf("Main thread run waiting for %d times...\n", pass);
+			break;
+		}
+
+		pass++;
+	}
+
+	printf("prepare to exit main thread...\n");
+
 }
 
 static long

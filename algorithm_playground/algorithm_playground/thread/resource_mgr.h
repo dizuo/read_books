@@ -24,16 +24,41 @@ class Resource
 {
 public:
 
-	DATA_T bool load();
+	Resource() : mSt(None)
+	{
+		sCounter++;
+	}
+
+	~Resource()
+	{
+		sCounter--;
+	}
+
+	virtual DATA_T bool load() { return true; }
 
 	void SetState(State st) { mSt = st; }
 	State getState() { return mSt; }
 
+	int getId() { return mId; }
+
+private:
+
+	static int sCounter;
+
 	State mSt;
+	int mId;
 };
 
 // ImageMaker
-// ImageLoaded
+
+class ImageLoader : public Resource
+{
+public:
+
+	bool load();
+
+};
+
 // DrawTile
 // DrawText
 
@@ -41,9 +66,14 @@ class ResourceManager
 {
 public:
 
+	ResourceManager();
+	~ResourceManager();
+
 	DATA_T void handleTasks();
 
 	MAIN_T void addResourceRequest(Resource* res);
+
+	MAIN_T void removeResource(Resource* res);
 
 private:
 
