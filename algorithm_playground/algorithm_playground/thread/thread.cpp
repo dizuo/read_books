@@ -41,12 +41,12 @@ ResourceManager resMgr;
 void custom_test()
 {
 	// add request.
-	
+	ResourceManager::smart_test();
+
 	Resource* res1 = new ImageLoader();
 	resMgr.addResourceRequest(res1);
 
 	Resource* res2 = new ImageLoader();
-
 	resMgr.addResourceRequest(res2);
 
 	std::thread data_thread(std::mem_fn(&ResourceManager::handleTasks), &resMgr);

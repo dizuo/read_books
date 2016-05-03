@@ -85,3 +85,42 @@ void ResourceManager::handleTasks()
 	printf("exit data thread...\n");	// Not safe.
 
 }
+
+void ResourceManager::smart_test()
+{
+#if 0
+	shared_ptr<int> sptr(new int(100));
+
+	weak_ptr<int> wptr(sptr);
+
+	auto ptest = wptr.lock();
+	shared_ptr<int> xx = wptr.lock();
+
+	int times = ptest.use_count();	// 3
+#endif
+
+	weak_ptr<int> wptr;
+
+	{
+		shared_ptr<int> sptr(new int(100));
+
+		int val = *sptr;
+
+		wptr = sptr;		// _Ptr, _Rep, 
+
+		auto ptest = wptr.lock();
+		shared_ptr<int> xx = wptr.lock();
+		int times = sptr.use_count();
+
+		bool isempty = wptr.expired();
+
+	}
+
+	bool isempty = wptr.expired();
+
+	auto ptest = wptr.lock();
+	int times = ptest.use_count();
+
+	int val = *(wptr._Get());		// bad value.
+
+}

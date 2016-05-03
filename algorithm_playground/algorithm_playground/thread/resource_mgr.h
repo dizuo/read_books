@@ -7,6 +7,8 @@
 #include <thread>
 #include <mutex>
 
+#include <memory>
+
 using namespace std;
 
 #define MAIN_T
@@ -74,6 +76,8 @@ public:
 	MAIN_T void addResourceRequest(Resource* res);
 
 	MAIN_T void removeResource(Resource* res);
+	
+	static void smart_test();
 
 private:
 
