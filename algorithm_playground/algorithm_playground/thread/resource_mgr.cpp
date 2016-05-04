@@ -1,5 +1,10 @@
 #include "resource_mgr.h"
 
+#include <functional>
+#include <algorithm>
+#include <iostream>
+using namespace std;
+
 int Resource::sCounter = 0;
 
 bool ImageLoader::load()
@@ -26,9 +31,8 @@ ResourceManager::ResourceManager()
 
 ResourceManager::~ResourceManager()
 {
-	DESTROY_VECTOR(toLoadVec);
-
-	DESTROY_VECTOR(loadedVec);
+	resources.clear();
+	to_load_vec.clear();
 }
 
 void ResourceManager::removeResource(Resource* res)
@@ -38,52 +42,96 @@ void ResourceManager::removeResource(Resource* res)
 
 void ResourceManager::addResourceRequest(Resource* res)
 {
-	mMutex.lock();
+	std::lock_guard<std::mutex> lock(mMutex);
 	
-	toLoadVec.push_back(res);
-	res->SetState(Loading);
+	// 在resource中查找是否重复
 
-	mMutex.unlock();
+	share_t sp(res);
+	resources.push_back(sp);
+	to_load_vec.push_back( weak_t(sp) );
+
+	res->SetState(Loading);
 }
 
 void ResourceManager::handleTasks()
 {
 	// release dead/
-
-	Resource* missions[3];
+	weak_t missions[3];
 
 	int num = 0;
-
 	mMutex.lock();
-	for (int k = 0; k < toLoadVec.size(); k++)
+	for (int k = 0; k < to_load_vec.size(); k++)
 	{
 		if (num >= 3)
 			break;
 
-		missions[num++] = toLoadVec[k];
+		missions[num++] = to_load_vec[k];
 	}
 
-	toLoadVec.erase(toLoadVec.begin(), toLoadVec.begin() + num);
+	to_load_vec.erase(to_load_vec.begin(), to_load_vec.begin() + num);
 	mMutex.unlock();
 
 	for (int k = 0; k < num; k++)
 	{
-		Resource* res = missions[k];
-		if (res->getState() != Loading)
+		if (missions[k].expired())
+			continue;
+		share_t pres = missions[k].lock();
+
+		if (pres->getState() != Loading)
 		{
 			continue;
 		}
-
-		if (res->load())
+		if (pres->load())
 		{
-			res->SetState(Loaded);
+			pres->SetState(Loaded);
 		}
 
-		loadedVec.push_back(res);
 	}
 
 	printf("exit data thread...\n");	// Not safe.
 
+}
+
+// lambda : http://www.cnblogs.com/hujian/archive/2012/02/14/2350306.html
+
+void ResourceManager::renderResource()
+{
+	int pass = 0;
+	while (true)
+	{
+		int items = 0;
+
+		for_each(resources.begin(), resources.end(), [&items](const share_t& sp) {
+			if (sp->getState() == Loaded)
+			{
+				cout << "finish loaded resource " << sp->getId() << endl;
+				items++;
+			}
+		});
+
+		if (items == resources.size())
+		{
+			printf("Main thread run waiting for %d times...\n", pass);
+			break;
+		}
+
+		pass++;
+	}
+}
+
+void ResourceManager::unit_test()
+{
+	ResourceManager resMgr;
+
+	resMgr.addResourceRequest(new ImageLoader());
+	resMgr.addResourceRequest(new ImageLoader());
+
+	std::thread data_thread(std::mem_fn(&ResourceManager::handleTasks), &resMgr);
+	data_thread.detach();
+
+	resMgr.renderResource();
+
+	printf("prepare to exit main thread...\n");
 }
 
 void ResourceManager::smart_test()

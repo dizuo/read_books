@@ -7,6 +7,7 @@
 #include <thread>
 #include <mutex>
 
+// shared_ptr, weaked_ptr
 #include <memory>
 
 using namespace std;
@@ -29,6 +30,7 @@ public:
 	Resource() : mSt(None)
 	{
 		sCounter++;
+		mId = sCounter;
 	}
 
 	~Resource()
@@ -57,6 +59,8 @@ class ImageLoader : public Resource
 {
 public:
 
+	ImageLoader() : Resource() {}
+
 	bool load();
 
 };
@@ -68,23 +72,32 @@ class ResourceManager
 {
 public:
 
+	typedef std::shared_ptr<Resource>	share_t;
+	typedef std::weak_ptr<Resource>	weak_t;
+
 	ResourceManager();
 	~ResourceManager();
 
 	DATA_T void handleTasks();
 
+	// share_t addResource(Resource key)	// 重复请求会增加share_t的引用计数
+
 	MAIN_T void addResourceRequest(Resource* res);
 
 	MAIN_T void removeResource(Resource* res);
 	
+	MAIN_T void renderResource();
+
 	static void smart_test();
+	static void unit_test();
 
 private:
 
+	// http://en.cppreference.com/w/cpp/thread
 	std::mutex mMutex;
 
-	vector<Resource*> toLoadVec;
-	vector<Resource*> loadedVec;
+	vector< share_t > resources;
+	vector< weak_t > to_load_vec;
 
 };
 

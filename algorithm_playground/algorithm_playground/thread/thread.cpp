@@ -36,35 +36,13 @@ void thread_main_entry()
 
 // ------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------
-ResourceManager resMgr;
 
 void custom_test()
 {
 	// add request.
-	ResourceManager::smart_test();
-
-	Resource* res1 = new ImageLoader();
-	resMgr.addResourceRequest(res1);
-
-	Resource* res2 = new ImageLoader();
-	resMgr.addResourceRequest(res2);
-
-	std::thread data_thread(std::mem_fn(&ResourceManager::handleTasks), &resMgr);
-	data_thread.detach();
-
-	int pass = 0;
-	while (true)
-	{
-		if (res1->getState() == Loaded && res2->getState() == Loaded)
-		{
-			printf("Main thread run waiting for %d times...\n", pass);
-			break;
-		}
-
-		pass++;
-	}
-
-	printf("prepare to exit main thread...\n");
+	// ResourceManager::smart_test();
+	
+	ResourceManager::unit_test();
 
 }
 
