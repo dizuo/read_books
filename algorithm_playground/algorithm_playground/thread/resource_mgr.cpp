@@ -7,9 +7,22 @@ using namespace std;
 
 int Resource::sCounter = 0;
 
+void dbg_printf(const char *fmt, ...)
+{
+	static mutex smutex;
+	smutex.lock();
+
+	va_list args;
+	va_start(args, fmt);
+	vfprintf(stderr, fmt, args);
+	va_end(args);
+
+	smutex.unlock();
+}
+
 bool ImageLoader::load()
 {
-	printf("load exec...\n");
+	dbg_printf("load exec...%d\n", getId());
 	std::this_thread::sleep_for(chrono::seconds(3));
 
 	return true;
@@ -35,22 +48,51 @@ ResourceManager::~ResourceManager()
 	to_load_vec.clear();
 }
 
-void ResourceManager::removeResource(Resource* res)
+void ResourceManager::deleteResource(share_t& pres)
 {
+	std::lock_guard<std::mutex> lock(mMutex);
 
+	map<str_t, share_t>::iterator it = resources.begin();
+	while (it != resources.end() && it->second != pres)
+		it++;
+	if (it == resources.end())
+		return;
+
+	dbg_printf("delete resource %s : %d\n", it->first.c_str(), it->second->getId());
+	resources.erase(it);
+
+	// clear Resource refercen in to_load_vec.
+	// vector<weak_t>::iterator xit = to_load_vec.begin();
+	// 
 }
 
-void ResourceManager::addResourceRequest(Resource* res)
+ResourceManager::share_t ResourceManager::createResource()
+{
+	return createResourceImpl();
+}
+
+ResourceManager::share_t ResourceManager::addResource(const str_t& key)
 {
 	std::lock_guard<std::mutex> lock(mMutex);
 	
-	// 在resource中查找是否重复
+	share_t pres;
 
-	share_t sp(res);
-	resources.push_back(sp);
-	to_load_vec.push_back( weak_t(sp) );
+	map<str_t, share_t>::iterator iter = resources.find(key);
+	if (iter == resources.end())
+	{
+		pres = createResource();
+		
+		resources.insert(std::make_pair(key, pres));		
+		pres->SetState(Loading);
 
-	res->SetState(Loading);
+		to_load_vec.push_back(weak_t(pres));
+	}
+	else
+	{
+		pres = iter->second;
+	}
+
+	return pres;
 }
 
 void ResourceManager::handleTasks()
@@ -96,11 +138,23 @@ void ResourceManager::handleTasks()
 
 void ResourceManager::renderResource()
 {
+	std::lock_guard<std::mutex> lock(mMutex);
+	
 	int pass = 0;
 	while (true)
 	{
 		int items = 0;
 
+		for (const auto& kv : resources) 
+		{
+			if (kv.second->getState() == Loaded)
+			{
+				// cout << "finish loaded resource " << kv.second->getId() << endl;
+				items++;
+			}
+		}
+
+#if 0
 		for_each(resources.begin(), resources.end(), [&items](const share_t& sp) {
 			if (sp->getState() == Loaded)
 			{
@@ -108,6 +162,7 @@ void ResourceManager::renderResource()
 				items++;
 			}
 		});
+#endif
 
 		if (items == resources.size())
 		{
@@ -117,21 +172,6 @@ void ResourceManager::renderResource()
 
 		pass++;
 	}
-}
-
-void ResourceManager::unit_test()
-{
-	ResourceManager resMgr;
-
-	resMgr.addResourceRequest(new ImageLoader());
-	resMgr.addResourceRequest(new ImageLoader());
-
-	std::thread data_thread(std::mem_fn(&ResourceManager::handleTasks), &resMgr);
-	data_thread.detach();
-
-	resMgr.renderResource();
-
-	printf("prepare to exit main thread...\n");
 }
 
 void ResourceManager::smart_test()
@@ -171,4 +211,35 @@ void ResourceManager::smart_test()
 
 	int val = *(wptr._Get());		// bad value.
 
+}
+
+ImageManager::share_t ImageManager::createResourceImpl()
+{
+	dbg_printf("create imageloaded\n");
+	return share_t(new ImageLoader());
+}
+
+// create resource.
+// use resource if loaded.
+// destroy resource.
+
+void ImageManager::unit_test()
+{
+	ResourceManager* resMgr = new ImageManager();
+
+	typedef ImageManager::share_t share_t;
+	share_t pres1 = resMgr->addResource("first");
+	share_t pres2 = resMgr->addResource("second");
+	share_t pres3 = resMgr->addResource("first");
+
+	std::thread data_thread(std::mem_fn(&ImageManager::handleTasks), resMgr);
+	data_thread.detach();
+
+	resMgr->deleteResource(pres3);
+
+	resMgr->renderResource();
+
+	printf("prepare to exit main thread...\n");
+
+	delete resMgr;
 }
