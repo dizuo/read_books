@@ -42,7 +42,7 @@ void custom_test()
 	// add request.
 	// ResourceManager::smart_test();
 	
-	ResourceManager::unit_test();
+	ImageManager::unit_test();
 
 }
 
