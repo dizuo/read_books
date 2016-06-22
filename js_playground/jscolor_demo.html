@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+	<link rel="stylesheet" href="css/demo.css" type="text/css">
+    <style type="text/css">
+        #savetext {
+            width: 40px;
+        }
+		#line-strokecolor {
+			width: 40px;
+			height: 40px;
+		}
+    </style>
+    <title>a[download] in HTML5 by zoho</title>
+</head>
+<body>
+
+<script type="text/javascript" src="js/jscolor.js"></script>
+
+<div style="position:absolute; left:400px; top:10px;" onclick="onclick">
+    toHEXString = <span id="hex-str"></span><br />
+    toRGBString = <span id="rgb-str"></span><br />
+    R, G, B = <span id="rgb"></span><br />
+    H, S, V = <span id="hsv"></span>
+</div>
+
+<input id="stroke" class="jscolor {onFineChange:'update(this)'}">
+
+<button onclick="document.getElementById('stroke').jscolor.fromString('#00000000');"> FirstSet</button>
+<button onmousedown="mapMouseDown(event)"> SetColor </button>
+
+<!--input id="stroke">
+<button id="line-strokecolor" class="jscolor {valueElement:'stroke'}"></button-->
+
+<script>
+	// value="#ffcc0055"	
+	// <button onclick="document.getElementById('stroke').value = '#00000000';"> SetColor</button>
+	
+	document.getElementById("stroke").value = "#fff";
+	
+	// document.getElementById('stroke').jscolor.fromString('#00000000');
+	// document.getElementById('line-strokecolor').jscolor.fromString( "#ffcc0055" );
+	
+	function mapMouseDown(e) {
+		document.getElementById("stroke").jscolor.fromString("#00000000");
+	}
+	
+function update(picker) {
+    document.getElementById('hex-str').innerHTML = picker.toHEXString();
+    document.getElementById('rgb-str').innerHTML = picker.toRGBString();
+
+    document.getElementById('rgb').innerHTML =
+        Math.round(picker.rgb[0]) + ', ' +
+        Math.round(picker.rgb[1]) + ', ' +
+        Math.round(picker.rgb[2]);
+
+    document.getElementById('hsv').innerHTML =
+        Math.round(picker.hsv[0]) + '&deg;, ' +
+        Math.round(picker.hsv[1]) + '%, ' +
+        Math.round(picker.hsv[2]) + '%';
+}
+</script>
+
+</body>
+
+</html>
+
