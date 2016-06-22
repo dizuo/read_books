@@ -223,6 +223,40 @@ ImageManager::share_t ImageManager::createResourceImpl()
 // use resource if loaded.
 // destroy resource.
 
+void f(initializer_list<int> xx)
+{
+	const int* pbeg = xx.begin();
+	const int* pend = xx.end();
+
+	for (const int* ptr = pbeg; ptr != pend; ptr++)
+		cout << *ptr << " ";
+	cout << endl;
+}
+
+struct PtrWrapper
+{
+	int* ptr;
+};
+
+class Ren
+{
+public:
+
+	void test() 
+	{
+		for_each(vec.begin(), vec.end(), [this](PtrWrapper* pitem)
+		{
+			if (*pitem->ptr == 2)
+			{
+				printf("exists..\n");
+			}
+		});
+	}
+
+	vector<PtrWrapper*> vec;
+
+};
+
 void ImageManager::unit_test()
 {
 	ResourceManager* resMgr = new ImageManager();
@@ -242,4 +276,7 @@ void ImageManager::unit_test()
 	printf("prepare to exit main thread...\n");
 
 	delete resMgr;
+
+	f({ 23, 345, 4567, 56789 });
+
 }

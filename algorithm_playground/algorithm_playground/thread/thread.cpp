@@ -24,11 +24,59 @@ void threadAsync();
 DECLARE_MAIN_ENTRY(thread_main_entry)
 #endif
 
+class Base
+{
+public: 
+	Base() {
+		printf("base contr\n");
+	}
+	virtual ~Base() {
+		printf("base destr\n");
+	}
+};
+
+class Derive : public Base
+{
+public:
+
+	Derive() {
+		printf("derive contr\n");
+	}
+
+	~Derive() {
+		printf("derive destr\n");
+	}
+
+};
+
 void thread_main_entry()
 {
+
+	Base* ptr = new Derive();
+	delete ptr;
+
 	// simple_test();
 
 	// threadAsync();
+	
+	typedef unsigned char GLubyte;
+	int wid = 10;
+	int hgh = 10;
+	GLubyte* bytes = new GLubyte[wid * hgh * 4];
+	for (int j = 0; j < hgh; j++)
+	{
+		for (int i = 0; i < wid; i++)
+		{
+			int low = i < wid/2 ? 0 : 1;
+			int hghx = j < hgh/2 ? 0 : 1;
+
+			int index = (hghx << 1) | (low);
+			
+			printf("%d ", index);
+		}
+		printf("\n");
+	}
+	printf("\n");
 
 	custom_test();
 
