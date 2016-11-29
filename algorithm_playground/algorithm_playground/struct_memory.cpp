@@ -30,14 +30,26 @@ void struct_mem_unit_test()
 	u16_t angles[3] = { 35, 60, 90 };
 	Point pnts[3] = { { 0, 0 }, { 1, 1 }, { 2, 2 } };
 
-	Annotation* item = (Annotation*)malloc(sizeof(Annotation) +
-		text_len * sizeof(u16_t) + 
-		text_len * sizeof(u16_t) + 
-		text_len * sizeof(Point) );
+	int item_total_size = sizeof(Annotation) +
+		text_len * sizeof(u16_t) +
+		text_len * sizeof(u16_t) +
+		text_len * sizeof(Point);
+
+	Annotation* item = (Annotation*)malloc(item_total_size);
 
 	memcpy(item->name, text, sizeof(u16_t) * text_len);	// copy text
 	memcpy(item->name + text_len, angles, sizeof(u16_t) * text_len);	// copy angles.
 	memcpy(&item->name[2 * text_len], pnts, sizeof(Point) * text_len);	// copy points.
+
+	// memory check
+	typedef unsigned long long addr_type;
+	addr_type base = (addr_type)item;
+	addr_type name = (addr_type)(&item->name[0]);
+	addr_type angle = (addr_type)(&item->name[text_len]);
+	addr_type pos = (addr_type)(&item->name[2 * text_len]);
+
+	int mem_size = pos - base + text_len * sizeof(Point);
+	printf("total size = %d, use size = %d\n", item_total_size, mem_size);		// waste 4 bytes.
 
 	for (int k = 0; k < text_len; k++)
 	{
@@ -72,3 +84,5 @@ void struct_mem_unit_test()
 
 	free(item);
 }
+
+
