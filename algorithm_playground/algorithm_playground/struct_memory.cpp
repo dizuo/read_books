@@ -10,6 +10,14 @@ DECLARE_MAIN_ENTRY(struct_mem_unit_test);
 
 typedef unsigned short u16_t;
 
+/*
+1>	struct Annotation
+1>		+---
+1>	0	|	flag
+1>	4	|	name_cnt
+1>	8	|	name
+1>		+---
+*/
 typedef struct Annotation_
 {
 	int flag;
@@ -22,6 +30,7 @@ typedef struct Point_
 	float x;
 	float y;
 } Point;
+
 
 void struct_mem_unit_test()
 {
@@ -36,6 +45,18 @@ void struct_mem_unit_test()
 		text_len * sizeof(Point);
 
 	Annotation* item = (Annotation*)malloc(item_total_size);
+
+/*
+1>	struct Annotation
+1>		+---
+1>	0	|	flag
+1>	4	|	name_cnt
+1>	8	|	name
+1>	14	|	name buffer 	( 3 * sizeof(unsigned short) )
+1>	20	| 	angle buffer 	( 3 * sizeof(unsigned short) )
+1>	44	|	points			( 3 * sizeof(Point) )
+1>		+---
+*/
 
 	memcpy(item->name, text, sizeof(u16_t) * text_len);	// copy text
 	memcpy(item->name + text_len, angles, sizeof(u16_t) * text_len);	// copy angles.
