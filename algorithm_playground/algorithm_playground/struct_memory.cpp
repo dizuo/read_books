@@ -18,6 +18,18 @@ typedef unsigned short u16_t;
 1>	8	|	name
 1>		+---
 */
+
+/*
+1>  class Annotation_	size(12) :
+1>  	+-- -
+1>   0 | flag
+1>   4 | name_cnt
+1>   8 | name
+1> | <alignment member> (size = 2)
+1>  	+-- -
+*/
+
+// CommandLine argvs: /d1 reportAllClassLayout 
 typedef struct Annotation_
 {
 	int flag;
