@@ -11,22 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B4310BA3-9CF0-4060-B924-06D38D3D0DCA}</ProjectGuid>
-    <RootNamespace>algorithm_playground</RootNamespace>
+    <ProjectGuid>{F0A26830-56A4-40E0-909D-1F5B1CBAF18D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>gl_render</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -38,68 +39,53 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../algorithm_playground;../algorithm_playground/tess;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../../gl_render;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\algorithm_playground\polygonpartation.h" />
-    <ClInclude Include="..\algorithm_playground\thread\resource_mgr.h" />
-    <ClInclude Include="..\algorithm_playground\xshare.h" />
-    <ClInclude Include="..\algorithm_playground\android_hwui.h" />
+    <ClCompile Include="..\..\gl_render\polygonpartation.cpp" />
+    <ClCompile Include="..\..\gl_render\tess_helper.cpp" />
+    <ClCompile Include="..\..\gl_render\tess_main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\algorithm_playground\android_canvas.h" />
-    <ClCompile Include="..\algorithm_playground\android_hwui_model_test.cpp" />
-    <ClCompile Include="..\algorithm_playground\array_op.cpp" />
-    <ClCompile Include="..\algorithm_playground\binary_op.cpp" />
-    <ClCompile Include="..\algorithm_playground\clipper.cpp" />
-    <ClCompile Include="..\algorithm_playground\cpp11.cpp" />
-    <ClCompile Include="..\algorithm_playground\c_cpp_op.cpp" />
-    <ClCompile Include="..\algorithm_playground\android_displaylist.h" />
-    <ClCompile Include="..\algorithm_playground\deepin_cpp.cpp" />
-    <ClCompile Include="..\algorithm_playground\fast_sort.cpp" />
-    <ClCompile Include="..\algorithm_playground\fuck_tango.cpp" />
-    <ClCompile Include="..\algorithm_playground\grab_html.cpp" />
-    <ClCompile Include="..\algorithm_playground\log_template.cpp" />
-    <ClCompile Include="..\algorithm_playground\macro_show.cpp" />
-    <ClCompile Include="..\algorithm_playground\min_heap.cpp" />
-    <ClCompile Include="..\algorithm_playground\number_op.cpp" />
-    <ClCompile Include="..\algorithm_playground\polygonpartation.cpp" />
-    <ClCompile Include="..\algorithm_playground\sequence.cpp" />
-    <ClCompile Include="..\algorithm_playground\simple_sort.cpp" />
-    <ClCompile Include="..\algorithm_playground\sort_int64.cpp" />
-    <ClCompile Include="..\algorithm_playground\stl_trick.cpp" />
-    <ClCompile Include="..\algorithm_playground\string_op.cpp" />
-    <ClCompile Include="..\algorithm_playground\string_swap.cpp" />
-    <ClCompile Include="..\algorithm_playground\struct_memory.cpp" />
-    <ClCompile Include="..\algorithm_playground\suffix_array.cpp" />
-    <ClCompile Include="..\algorithm_playground\tess_main.cpp" />
-    <ClCompile Include="..\algorithm_playground\thread\resource_mgr.cpp" />
-    <ClCompile Include="..\algorithm_playground\thread\thread.cpp" />
-    <ClCompile Include="..\algorithm_playground\windows_thread_event.cpp" />
+    <ClInclude Include="..\..\gl_render\polygonpartation.h" />
+    <ClInclude Include="..\..\gl_render\tess_helper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

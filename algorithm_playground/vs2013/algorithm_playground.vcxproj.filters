@@ -16,6 +16,9 @@
     <Filter Include="源文件\thread">
       <UniqueIdentifier>{8141ea67-4e0a-42cf-a93e-1b41e672617b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\tess">
+      <UniqueIdentifier>{d5e91f78-687f-49e1-9788-2e97f8b86fde}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\algorithm_playground\xshare.h">
@@ -26,6 +29,9 @@
     </ClInclude>
     <ClInclude Include="..\algorithm_playground\thread\resource_mgr.h">
       <Filter>源文件\thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\algorithm_playground\polygonpartation.h">
+      <Filter>源文件\tess</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +115,12 @@
     </ClCompile>
     <ClCompile Include="..\algorithm_playground\thread\resource_mgr.cpp">
       <Filter>源文件\thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\polygonpartation.cpp">
+      <Filter>源文件\tess</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\tess_main.cpp">
+      <Filter>源文件\tess</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -33,7 +33,7 @@
 
 // #define STRUCT_MEMORY
 
-#define STL_TRICK
+// #define STL_TRICK
 
 // #define MACRO_SHOW_
 

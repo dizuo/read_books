@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "algorithm_playground", "algorithm_playground.vcxproj", "{B4310BA3-9CF0-4060-B924-06D38D3D0DCA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gl_render", "gl_render\gl_render.vcxproj", "{F0A26830-56A4-40E0-909D-1F5B1CBAF18D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B4310BA3-9CF0-4060-B924-06D38D3D0DCA}.Debug|Win32.Build.0 = Debug|Win32
 		{B4310BA3-9CF0-4060-B924-06D38D3D0DCA}.Release|Win32.ActiveCfg = Release|Win32
 		{B4310BA3-9CF0-4060-B924-06D38D3D0DCA}.Release|Win32.Build.0 = Release|Win32
+		{F0A26830-56A4-40E0-909D-1F5B1CBAF18D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F0A26830-56A4-40E0-909D-1F5B1CBAF18D}.Debug|Win32.Build.0 = Debug|Win32
+		{F0A26830-56A4-40E0-909D-1F5B1CBAF18D}.Release|Win32.ActiveCfg = Release|Win32
+		{F0A26830-56A4-40E0-909D-1F5B1CBAF18D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
