@@ -39,6 +39,8 @@
 
 // #define CPP11_THREAD_
 
+#define STRUCT_MEMORY
+
 template< typename Type, int SIZE >
 inline void fill_array(Type(&buffer)[SIZE], int max_value)
 {
