@@ -33,6 +33,9 @@
     <ClInclude Include="..\algorithm_playground\polygonpartation.h">
       <Filter>源文件\tess</Filter>
     </ClInclude>
+    <ClInclude Include="..\algorithm_playground\svg_maker.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\algorithm_playground\binary_op.cpp">
@@ -119,8 +122,8 @@
     <ClCompile Include="..\algorithm_playground\polygonpartation.cpp">
       <Filter>源文件\tess</Filter>
     </ClCompile>
-    <ClCompile Include="..\algorithm_playground\tess_main.cpp">
-      <Filter>源文件\tess</Filter>
+    <ClCompile Include="..\algorithm_playground\svg_maker.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
