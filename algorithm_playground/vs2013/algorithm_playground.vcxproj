@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\algorithm_playground\delta_point_memory_layout.h" />
     <ClInclude Include="..\algorithm_playground\polygonpartation.h" />
     <ClInclude Include="..\algorithm_playground\svg_maker.h" />
     <ClInclude Include="..\algorithm_playground\thread\resource_mgr.h" />
@@ -82,6 +83,7 @@
     <ClCompile Include="..\algorithm_playground\c_cpp_op.cpp" />
     <ClCompile Include="..\algorithm_playground\android_displaylist.h" />
     <ClCompile Include="..\algorithm_playground\deepin_cpp.cpp" />
+    <ClCompile Include="..\algorithm_playground\delta_point_memory_layout.cpp" />
     <ClCompile Include="..\algorithm_playground\fast_sort.cpp" />
     <ClCompile Include="..\algorithm_playground\fuck_tango.cpp" />
     <ClCompile Include="..\algorithm_playground\grab_html.cpp" />

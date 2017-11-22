@@ -36,6 +36,9 @@
     <ClInclude Include="..\algorithm_playground\svg_maker.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\algorithm_playground\delta_point_memory_layout.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\algorithm_playground\binary_op.cpp">
@@ -123,6 +126,9 @@
       <Filter>源文件\tess</Filter>
     </ClCompile>
     <ClCompile Include="..\algorithm_playground\svg_maker.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\algorithm_playground\delta_point_memory_layout.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

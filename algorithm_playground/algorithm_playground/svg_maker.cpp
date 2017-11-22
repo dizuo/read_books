@@ -1,5 +1,6 @@
 #include "svg_maker.h"
 
+#if 0
 int main()
 {
 	SvgMaker app(100, 100);
@@ -13,3 +14,5 @@ int main()
 
 	return 0;
 }
+
+#endif
